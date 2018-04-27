@@ -1,1 +1,12 @@
 ##This is my first script##
+#Create ssh keys on linux
+
+ssh-keygen -t rsa
+
+#Hit enter to save in default
+
+#Accept request (yes)
+
+#Enter a passphrase (password)
+
+
