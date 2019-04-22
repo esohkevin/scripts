@@ -299,7 +299,7 @@ from Bio import Entrez
 import datetime
 import csv
 Entrez.email = "kevin.esoh@students.jkuat.ac.ke"
-api_key = "d1d3e5e1d2195630862f5096c55147210f07"
+api_key = ""
 currentDate = datetime.date.today()
 currentTime = datetime.datetime.now()
 
