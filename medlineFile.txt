@@ -1,0 +1,791 @@
+Database: pubmed
+Query: ("malaria"[MeSH Terms] OR "malaria"[All Fields]) AND "vaccine candidate"[All Fields]
+Accessed: Thu 25 April, 2019 | 03:28:20
+Count: 993
+
+1. Parasit Vectors. 2019 Apr 18;12(1):176. doi: 10.1186/s13071-019-3434-7.
+
+Identification and characterization of Pv50, a novel Plasmodium vivax merozoite
+surface protein.
+
+Cheng Y(1)(2), Wang B(3)(4), Lu F(3)(5), Ahmed MA(3), Han JH(3), Na SH(6), Ha
+KS(7), Park WS(8), Hong SH(9), Han ET(10).
+
+Author information: 
+(1)Department of Public Health and Preventive Medicine, Laboratory of Pathogen
+Infection and Immunity, Wuxi School of Medicine, Jiangnan University, Wuxi,
+Jiangsu, People's Republic of China. woerseng@126.com.
+(2)Department of Medical Environmental Biology and Tropical Medicine, School of
+Medicine, Kangwon National University, Chuncheon, Gangwon-do, Republic of Korea. 
+woerseng@126.com.
+(3)Department of Medical Environmental Biology and Tropical Medicine, School of
+Medicine, Kangwon National University, Chuncheon, Gangwon-do, Republic of Korea.
+(4)Department of Clinical Laboratory, The First Affiliated Hospital of Anhui
+Medical University, Hefei, Anhui, People's Republic of China.
+(5)Department of Pathogen Biology and Immunology, School of Medicine, Yangzhou
+University, Yangzhou, People's Republic of China.
+(6)Department of Obstetrics and Gynecology, Kangwon National University Hospital,
+Kangwon National University School of Medicine, Chuncheon, 24341, South Korea.
+(7)Department of Molecular and Cellular Biochemistry, School of Medicine, Kangwon
+National University, Chuncheon, Gangwon-do, 24341, Republic of Korea.
+(8)Department of Physiology, School of Medicine, Kangwon National University,
+Chuncheon, Gangwon-do, 24341, Republic of Korea.
+(9)Department of Internal Medicine, School of Medicine, Kangwon National
+University, Chuncheon, Gangwon-do, 24341, Republic of Korea.
+(10)Department of Medical Environmental Biology and Tropical Medicine, School of 
+Medicine, Kangwon National University, Chuncheon, Gangwon-do, Republic of Korea. 
+ethan@kangwon.ac.kr.
+
+BACKGROUND: Plasmodium vivax contains approximately 5400 coding genes, more than 
+40% of which code for hypothetical proteins that have not been functionally
+characterized. In a previous preliminary screening using pooled serum samples,
+numerous hypothetical proteins were selected from among those that were highly
+transcribed in the schizont-stage of parasites, and highly antigenic P. vivax
+candidates including hypothetical proteins were identified. However, their
+immunological and functional activities in P. vivax remain unclear. From these
+candidates, we investigated a P. vivax 50-kDa protein (Pv50, PVX_087140)
+containing a highly conserved signal peptide that shows high transcription levels
+in blood-stage parasites.
+RESULTS: Recombinant Pv50 was expressed in a cell-free expression system and used
+for IgG prevalence analysis of patients with vivax malaria and healthy
+individuals. Immune responses were analyzed in immunized mice and mouse
+antibodies were used to detect the subcellular localization of the protein in
+blood-stage parasites by immunofluorescence assay. A protein array method was
+used to evaluate protein-protein interactions to predict protein functional
+activities during the invasion of parasites into erythrocytes. Recombinant Pv50
+showed IgG prevalence in patient samples with a sensitivity of 42.9% and
+specificity of 93.8% compared to that in healthy individuals. The non-cytophilic 
+antibodies IgG1 and IgG3 were the major components involved in the antibody
+response in Pv50-immunized mice. Pv50 localized on the surface of merozoites and 
+a specific interaction between Pv50 and PvMSP1 was detected, suggesting that
+Pv50-PvMSP1 forms a heterodimeric complex in P. vivax.
+CONCLUSIONS: Increased immune responses caused by native P. vivax parasites were 
+detected, confirming its immunogenic effects. This study provides a method for
+detecting new malaria antigens, and Pv50 may be a vivax malaria vaccine candidate
+with PvMSP1.
+
+DOI: 10.1186/s13071-019-3434-7 
+PMID: 30999945 
+
+
+2. Protein Expr Purif. 2019 Apr 10;160:56-65. doi: 10.1016/j.pep.2019.04.001. [Epub 
+ahead of print]
+
+Expression and purification optimization of an N-terminal Pfs230
+transmission-blocking vaccine candidate.
+
+Lee SM(1), Plieskatt J(2), Krishnan S(3), Raina M(3), Harishchandra R(3), King
+CR(2).
+
+Author information: 
+(1)PATH's Malaria Vaccine Initiative (MVI), 455 Massachusetts Avenue NW, Suite
+1000, Washington, DC, 20001-2621, USA. Electronic address: smlee@path.org.
+(2)PATH's Malaria Vaccine Initiative (MVI), 455 Massachusetts Avenue NW, Suite
+1000, Washington, DC, 20001-2621, USA.
+(3)Syngene International Ltd, Plot No.2,3,4 &5 Phase IV, Bommasandra Jigani Link 
+Road, Bommasandra Industrial Area, Bangalore, 560099, India.
+
+In an effort to control and eventually eliminate malaria, the development of
+transmission-blocking vaccines has long been sought. However, few antigens have
+been evaluated in clinical trials, often due to limitations in the expression and
+purification of the antigen in sufficient yield and quality. Pfs230, a surface
+antigen of gametocytes, has recently advanced to clinical evaluation as a
+conjugate vaccine using the Pseudomonas aeruginosa exoprotein A carrier protein. 
+Here we continue to build upon prior work of developing a Pfs230 candidate in the
+baculovirus system, Pfs230C1 (aa 443-731), through systematic process development
+efforts to improve yield and purity. Various insect cells including High Five,
+Sf9 and Super Sf9 were first evaluated for quality and quantity of antigen, along
+with three insect cell media. In the selection of Sf9 cells, an intact Pfs230C1
+was expressed and harvested at 48 h for downstream development. A downstream
+process, utilizing immobilized metal affinity column (IMAC), followed by ion
+exchange (IEX) membranes (Mustang S) and finally IEX chromatography (DEAE)
+yielded a pure Pfs230C1 protein. The complete process was repeated three times at
+the 20 L scale. To support the eventual chemistry manufacturing and controls
+(CMC) of Pfs230C1, analytical tools, including monoclonal antibodies, were
+developed to characterize the identity, integrity, and purity of Pfs230C1. These 
+analytical tools, taken in combination with the optimized process, were
+implemented with Current Good Manufacturing Practices (cGMP) in mind with the
+ultimate objective of Phase I clinical trials.
+
+Copyright © 2019 The Authors. Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.pep.2019.04.001 
+PMID: 30978392 
+
+
+3. Sci Rep. 2019 Apr 11;9(1):5923. doi: 10.1038/s41598-019-42366-9.
+
+PfMSA180 is a novel Plasmodium falciparum vaccine antigen that interacts with
+human erythrocyte integrin associated protein (CD47).
+
+Nagaoka H(1), Sasaoka C(1), Yuguchi T(1), Kanoi BN(1), Ito D(2), Morita M(1),
+Udomsangpetch R(3), Sattabongkot J(4), Ishino T(5), Tsuboi T(1), Takashima E(6).
+
+Author information: 
+(1)Division of Malaria Research, Proteo-Science Center, Ehime University, 3
+Bunkyo-cho, Matsuyama, Ehime, 790-8577, Japan.
+(2)Division of Medical Zoology, Department of Microbiology and Immunology,
+Faculty of Medicine, Tottori University, 86 Nishi-cho, Yonago, Tottori, 683-8503,
+Japan.
+(3)Center for Research and Innovation, Faculty of Medical Technology, Mahidol
+University, Salaya, Nakhosn Pathom, 73170, Thailand.
+(4)Mahidol Vivax Research Unit, Faculty of Tropical Medicine, Mahidol University,
+Bangkok, 10400, Thailand.
+(5)Division of Molecular Parasitology, Proteo-Science Center, Ehime University,
+Toon, Ehime, 791-0295, Japan.
+(6)Division of Malaria Research, Proteo-Science Center, Ehime University, 3
+Bunkyo-cho, Matsuyama, Ehime, 790-8577, Japan. takashima.eizo.mz@ehime-u.ac.jp.
+
+Malaria symptoms and pathology are initiated by invasion of host erythrocytes by 
+Plasmodium merozoites in a complex process that involves interactions between
+parasite and host erythrocyte proteins. Erythrocyte invasion presents attractive 
+targets for malaria vaccine and drug development. Recently it was observed that
+antibodies against PfMSA180 (PF3D7_1014100) are associated with protection from
+symptomatic malaria, suggesting that this protein is a target of naturally
+acquired protective antibodies. Here we characterize PfMSA180, a ~170 kDa
+merozoite surface antigen that is potentially involved in erythrocyte invasion.
+PfMSA180 synthesized by the wheat germ cell-free system was used to raise
+antibodies in rabbits. Growth inhibition assays revealed that parasite invasion
+is inhibited by antibodies to the PfMSA180 C-terminal region, which contains an
+erythrocyte-binding domain. Surface plasmon resonance analysis showed that
+PfMSA180 specifically interacts with human erythrocyte integrin associated
+protein (CD47), suggesting that PfMSA180 plays a role during merozoite invasion
+of erythrocytes. Polymorphism analysis revealed that pfmsa180 is highly conserved
+among field isolates. We show that naturally acquired PfMSA180-specific
+antibodies responses are associated with protective immunity in a malaria-exposed
+Thai population. In sum, the data presented here supports further evaluation of
+the conserved erythrocyte-binding C-terminal region of PfMSA180 as an asexual
+blood-stage malaria vaccine candidate.
+
+DOI: 10.1038/s41598-019-42366-9 
+PMCID: PMC6459815
+PMID: 30976034 
+
+
+4. Infect Immun. 2019 Apr 1. pii: IAI.00911-18. doi: 10.1128/IAI.00911-18. [Epub
+ahead of print]
+
+Combining MPL, CpG ODN, and QS-21 adjuvants induce strong and persistent
+functional antibodies and T cell responses against cell-traversal protein for
+ookinetes and sporozoites (CelTOS) of Plasmodium falciparum in BALB/c mice.
+
+Pirahmadi S(1), Zakeri S(2), Mehrizi AA(1), Djadid ND(1), Raz AA(1), Sani JJ(1).
+
+Author information: 
+(1)Malaria and Vector Research Group (MVRG), Biotechnology Research Center (BRC),
+Pasteur Institute of Iran, Tehran, Iran.
+(2)Malaria and Vector Research Group (MVRG), Biotechnology Research Center (BRC),
+Pasteur Institute of Iran, Tehran, Iran zakeris@yahoo.com.
+
+P. falciparum cell-traversal protein for ookinetes and sporozoites (PfCelTOS) is 
+an advanced vaccine candidate that has a crucial role in the traversal of the
+malaria parasite in both mosquito and mammalian hosts. As recombinant purified
+proteins are normally poor immunogens, they require to be admixed with
+adjuvant(s); therefore, the objective of the present study was to evaluate the
+capacity of different vaccine adjuvants, MPL, CpG, and QS-21 alone or in
+combination MPL/CpG/QS-21 (MCQ) on the enhancement of the immunogenicity of E.
+coli-expressed PfCelTOS in BALB/c mice. This goal was achieved by the assessment 
+of the anti-PfCelTOS IgG antibodies (level, titer, its IgG isotypes profile, its 
+avidity, and its persistence), and the extracellular Th1 cytokines using
+enzyme-linked immunosorbent assay (ELISA) in post-immunized BALB/c mouse sera and
+PfCelTOS-stimulated splenocytes, respectively. Also, the assessment of
+transmission-reducing activity (TRA) of anti-PfCelTOS obtained from different
+vaccine groups was carried out in female Anopheles stephensi by using standard
+membrane feeding assay (SMFA). In comparison to PfCelTOS alone, administration of
+PfCelTOS with three distinct Th1 potent adjuvants in vaccine mouse groups showed 
+enhancement and improvement of PfCelTOS immunogenicity that generated a more bias
+toward Th1 response with significantly enhanced titer and avidity of the
+anti-PfCelTOS responses that could impair the ookinete development in An.
+stephensi. However, the mice immunized with PfCelTOS in MCQ mixture adjuvants
+resulted in the highest induction of antibody titers, avidity, and inhibitory
+antibodies in oocysts development (88%/26.7% reductions in intensity/prevalence) 
+in An. stephensi It could be suggested that adjuvant combinations with different 
+mechanisms stimulate better functional antibody responses than using adjuvants
+individually against challenging diseases such as malaria.
+
+Copyright © 2019 American Society for Microbiology.
+
+DOI: 10.1128/IAI.00911-18 
+PMID: 30936155 
+
+
+5. BMC Struct Biol. 2019 Mar 27;19(1):6. doi: 10.1186/s12900-019-0104-0.
+
+Effect of low complexity regions within the PvMSP3α block II on the tertiary
+structure of the protein and implications to immune escape mechanisms.
+
+Kebede AM(1)(2)(3), Tadesse FG(4)(5)(6), Feleke AD(4), Golassa L(7), Gadisa E(6).
+
+Author information: 
+(1)Institute of Biotechnology, Addis Ababa University, Addis Ababa, Ethiopia.
+alebachew.messele@aau.edu.et.
+(2)Aklilu Lemma Institute of Pathobiology, Addis Ababa University, Addis Ababa,
+Ethiopia. alebachew.messele@aau.edu.et.
+(3)Armauer Hansen Research Institute (AHRI), Addis Ababa, Ethiopia.
+alebachew.messele@aau.edu.et.
+(4)Institute of Biotechnology, Addis Ababa University, Addis Ababa, Ethiopia.
+(5)Radboud Institute for Health Sciences, Radboud University Medical Centre,
+Nijmegen, The Netherlands.
+(6)Armauer Hansen Research Institute (AHRI), Addis Ababa, Ethiopia.
+(7)Aklilu Lemma Institute of Pathobiology, Addis Ababa University, Addis Ababa,
+Ethiopia.
+
+BACKGROUND: Plasmodium vivax merozoite surface protein 3α (PvMSP3α) is a
+promising vaccine candidate which has shown strong association with
+immunogenicity and protectiveness. Its use is however complicated by evolutionary
+plasticity features which enhance immune evasion. Low complexity regions (LCRs)
+provide plasticity in surface proteins of Plasmodium species, but its implication
+in vaccine design remain unexplored. Here population genetic, comparative
+phylogenetic and structural biology analysis was performed on the gene encoding
+PvMSP3α.
+RESULTS: Three LCRs were found in PvMSP3α block II. Both the predicted tertiary
+structure of the protein and the phylogenetic trees based on this region were
+influenced by the presence of the LCRs. The LCRs were mainly B cell epitopes
+within or adjacent. In addition a repeat motif mimicking one of the B cell
+epitopes was found within the PvMSP3a block II low complexity region. This
+particular B cell epitope also featured rampant alanine substitutions which might
+impair antibody binding.
+CONCLUSION: The findings indicate that PvMSP3α block II possesses LCRs which
+might confer a strong phenotypic plasticity. The phenomenon of phenotypic
+plasticity and implication of LCRs in malaria immunology in general and vaccine
+candidate genes in particular merits further exploration.
+
+DOI: 10.1186/s12900-019-0104-0 
+PMCID: PMC6437935
+PMID: 30917807 
+
+
+6. Med Hypotheses. 2019 Apr;125:119-123. doi: 10.1016/j.mehy.2019.01.006. Epub 2019 
+Jan 11.
+
+PRE-binding protein of Plasmodium falciparum is a potential candidate for vaccine
+design and development: An in silico evaluation of the hypothesis.
+
+Sanasam BD(1), Kumar S(2).
+
+Author information: 
+(1)Department of Life Science & Bioinformatics, Assam University, Silchar 788011,
+India.
+(2)Department of Life Science & Bioinformatics, Assam University, Silchar 788011,
+India. Electronic address: s_puniya@yahoo.com.
+
+Immunity to Plasmodium falciparum is contributed by many known and unknown
+factors. Lack of effective vaccine and rise in drug-resistant Plasmodium
+parasites leads to the major challenge in controlling the parasite. Determination
+of surface or secreted proteins which are essential for the survival of the
+pathogen is a very important step in finding potential vaccine candidates.
+Despite the discovery of several vaccine candidates against Plasmodium over the
+last decades, an effective vaccine is not available. The present study
+hypothesized that the PRE-binding protein (PREBP) could be a potential vaccine
+candidate against malaria pathogenesis. PREBP is highly conserved among the class
+Aconoidasida and exhibit high antigenicity and accessibility as a secretory
+protein. The present hypothesis was tested by employing in-silico translational
+genomics wherein the antigenicity, localization and the conservancy were
+determined.
+
+Copyright © 2019 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.mehy.2019.01.006 
+PMID: 30902138 
+
+
+7. mSphere. 2019 Feb 20;4(1). pii: e00027-19. doi: 10.1128/mSphereDirect.00027-19.
+
+Antibody Biomarkers Associated with Sterile Protection Induced by Controlled
+Human Malaria Infection under Chloroquine Prophylaxis.
+
+Obiero JM(1), Campo JJ(2), Scholzen A(3), Randall A(2), Bijker EM(3), Roestenberg
+M(3), Hermsen CC(3), Teng A(2), Jain A(4), Davies DH(4), Sauerwein RW(3), Felgner
+PL(4).
+
+Author information: 
+(1)Vaccine Research and Development Center, Department of Physiology and
+Biophysics, University of California, Irvine, Irvine, California, USA
+jobiero@uci.edu.
+(2)Antigen Discovery, Inc., Irvine, California, USA.
+(3)Radboud University Medical Center, Department of Medical Microbiology,
+Nijmegen, The Netherlands.
+(4)Vaccine Research and Development Center, Department of Physiology and
+Biophysics, University of California, Irvine, Irvine, California, USA.
+
+Comment in
+    mSphere. 2019 Mar 27;4(2):.
+
+Immunization with sporozoites under chloroquine chemoprophylaxis (CPS) induces
+distinctly preerythrocytic and long-lasting sterile protection against homologous
+controlled human malaria infection (CHMI). To identify possible humoral immune
+correlates of protection, plasma samples were collected from 38 CPS-immunized
+Dutch volunteers for analysis using a whole Plasmodium falciparum proteome
+microarray with 7,455 full-length or segmented protein features displaying about 
+91% of the total P. falciparum proteome. We identified 548 reactive antigens
+representing 483 unique proteins. Using the breadth of antibody responses for
+each subject in a mixture-model algorithm, we observed a trimodal pattern, with
+distinct groups of 16 low responders, 19 medium responders, and 3 high
+responders. Fifteen out of 16 low responders, 12 of the 19 medium responders, and
+3 out of 3 high responders were fully protected from a challenge infection. In
+the medium-responder group, we identified six novel antigens associated with
+protection (area under the curve [AUC] value of ≥0.75; P < 0.05) and six other
+antigens that were specifically increased in nonprotected volunteers (AUC value
+of ≤0.25; P < 0.05). When used in combination, the multiantigen classifier
+predicts CPS-induced protective efficacy with 83% sensitivity and 88%
+specificity. The antibody response patterns characterized in this study represent
+surrogate markers that may provide rational guidance for clinical vaccine
+development.IMPORTANCE Infection by Plasmodium parasites has been a major cause
+of mortality and morbidity in humans for thousands of years. Despite the
+considerable reduction of deaths, according to the WHO, over 5 billion people are
+still at risk, with about 216 million worldwide cases occurring in 2016. More
+compelling, 15 countries in sub-Saharan Africa bore 80% of the worldwide malaria 
+burden. Complete eradication has been challenging, and the development of an
+affordable and effective vaccine will go a long way in achieving elimination.
+However, identifying vaccine candidate targets has been difficult. In the present
+study, we use a highly effective immunization protocol that confers long-lasting 
+sterile immunity in combination with a whole P. falciparum proteome microarray to
+identify antibody responses associated with protection. This study characterizes 
+a novel antibody profile associated with sterile protective immunity and trimodal
+humoral responses that sheds light on the possible mechanism of CPS-induced
+immunity against P. falciparum parasites.
+
+Copyright © 2019 Obiero et al.
+
+DOI: 10.1128/mSphereDirect.00027-19 
+PMCID: PMC6382972
+PMID: 30787114  [Indexed for MEDLINE]
+
+
+8. BMC Bioinformatics. 2019 Feb 4;19(Suppl 13):468. doi: 10.1186/s12859-018-2482-x.
+
+Exploitation of reverse vaccinology and immunoinformatics as promising platform
+for genome-wide screening of new effective vaccine candidates against Plasmodium 
+falciparum.
+
+Pritam M(1), Singh G(1), Swaroop S(2), Singh AK(1), Singh SP(3).
+
+Author information: 
+(1)Amity Institute of Biotechnology, Amity University Uttar Pradesh, Lucknow
+Campus, Lucknow, 226028, India.
+(2)Department of Zoology, University of Lucknow, Lucknow, 226007, India.
+(3)Amity Institute of Biotechnology, Amity University Uttar Pradesh, Lucknow
+Campus, Lucknow, 226028, India. spsingh5@amity.edu.
+
+BACKGROUND: In the current scenario, designing of world-wide effective malaria
+vaccine against Plasmodium falciparum remain challenging despite the significant 
+progress has been made in last few decades. Conventional vaccinology (isolate,
+inactivate and inject) approaches are time consuming, laborious and expensive;
+therefore, the use of computational vaccinology tools are imperative, which can
+facilitate the design of new and promising vaccine candidates.
+RESULTS: In current investigation, initially 5548 proteins of P. falciparum
+genome were carefully chosen for the incidence of signal peptide/ anchor using
+SignalP4.0 tool that resulted into 640 surface linked proteins (SLP). Out of
+these SLP, only 17 were predicted to contain GPI-anchors using PredGPI tool in
+which further 5 proteins were considered as malarial antigenic adhesins by MAAP
+and VaxiJen programs, respectively. In the subsequent step, T cell epitopes of 5 
+genome derived predicted antigenic adhesins (GDPAA) and 5 randomly selected known
+malarial adhesins (RSKMA) were analysed employing MHC class I and II tools of
+IEDB analysis resource. Finally, VaxiJen scored T cell epitopes from each antigen
+were considered for prediction of population coverage (PPC) analysis in the
+world-wide population including malaria endemic regions. The validation of the
+present in silico strategy was carried out by comparing the PPC of combined (MHC 
+class I and II) predicted epitope ensemble among GDPAA (99.97%), RSKMA (99.90%)
+and experimentally known epitopes (EKE) of P. falciparum (97.72%) pertaining to
+world-wide human population.
+CONCLUSIONS: The present study systematically screened 5 potential protective
+antigens from P. falciparum genome using bioinformatics tools. Interestingly,
+these GDPAA, RSKMA and EKE of P. falciparum epitope ensembles forecasted to
+contain highly promiscuous T cell epitopes, which are potentially effective for
+most of the world-wide human population with malaria endemic regions. Therefore, 
+these epitope ensembles could be considered in near future for novel and
+significantly effective vaccine candidate against malaria.
+
+DOI: 10.1186/s12859-018-2482-x 
+PMID: 30717656  [Indexed for MEDLINE]
+
+
+9. Malar J. 2019 Jan 18;18(1):13. doi: 10.1186/s12936-019-2637-x.
+
+Immunoglobulin G subclass and antibody avidity responses in Malian children
+immunized with Plasmodium falciparum apical membrane antigen 1 vaccine candidate 
+FMP2.1/AS02A.
+
+Berry AA(1), Gottlieb ER(2)(3), Kouriba B(4), Diarra I(4), Thera MA(4), Dutta
+S(5), Coulibaly D(4), Ouattara A(2), Niangaly A(4), Kone AK(4), Traore K(4), Tolo
+Y(4), Mishcherkin V(2), Soisson L(6), Diggs CL(6), Blackwelder WC(2), Laurens
+MB(2), Sztein MB(2), Doumbo OK(4), Plowe CV(2)(7), Lyke KE(2).
+
+Author information: 
+(1)Center for Vaccine Development and Global Health, University of Maryland
+School of Medicine, Baltimore, MD, USA. aberry@som.umaryland.edu.
+(2)Center for Vaccine Development and Global Health, University of Maryland
+School of Medicine, Baltimore, MD, USA.
+(3)Warren Alpert Medical School, Brown University, Providence, RI, USA.
+(4)University of Sciences, Techniques, and Technologies, Bamako, Bamako, Mali.
+(5)Walter Reed Army Institute of Research, Silver Spring, MD, USA.
+(6)United States Agency for International Development, Washington, DC, USA.
+(7)Duke Global Health Institute, Duke University, 310 Trent Drive, Durham, NC,
+USA.
+
+BACKGROUND: A malaria vaccine based on Plasmodium falciparum apical membrane
+antigen 1 (AMA1) elicited strain specific efficacy in Malian children that waned 
+in the second season after vaccination despite sustained AMA1 antibody titers.
+With the goal of identifying a humoral correlate of vaccine-induced protection,
+pre- and post-vaccination sera from children vaccinated with the AMA1 vaccine and
+from a control group that received a rabies vaccine were tested for AMA1-specific
+immunoglobulin G (IgG) subclasses (IgG1, IgG2, IgG3, and IgG4) and for antibody
+avidity.
+METHODS: Samples from a previously completed Phase 2 AMA1 vaccine trial in
+children residing in Mali, West Africa were used to determine AMA1-specific IgG
+subclass antibody titers and avidity by ELISA. Cox proportional hazards models
+were used to assess correlation between IgG subclass antibody titers and risk of 
+time to first or only clinical malaria episode and risk of multiple episodes.
+Asexual P. falciparum parasite density measured for each child as area under the 
+curve were used to assess correlation between IgG subclass antibody titers and
+parasite burden.
+RESULTS: AMA1 vaccination did not elicit a change in antibody avidity; however,
+AMA1 vaccinees had a robust IgG subclass response that persisted over the malaria
+transmission season. AMA1-specific IgG subclass responses were not associated
+with decreased risk of subsequent clinical malaria. For the AMA1 vaccine group,
+IgG3 levels at study day 90 correlated with high parasite burden during days
+90-240. In the control group, AMA1-specific IgG subclass rise and persistence
+over the malaria season was modest and correlated with age. In the control group,
+titers of several IgG subclasses at days 90 and 240 correlated with parasite
+burden over the first 90 study days, and IgG3 at day 240 correlated with parasite
+burden during days 90-240.
+CONCLUSIONS: Neither IgG subclass nor avidity was associated with the modest,
+strain-specific efficacy elicited by this blood stage malaria vaccine. Although a
+correlate of protection was not identified, correlations between subclass titers 
+and age, and correlations between IgG subclass titers and parasite burden,
+defined by area under the curve parasitaemia levels, were observed, which expand 
+knowledge about IgG subclass responses. IgG3, known to have the shortest
+half-life of the IgG subclasses, might be the most temporally relevant indicator 
+of ongoing malaria exposure when examining antibody responses to AMA1.
+
+DOI: 10.1186/s12936-019-2637-x 
+PMCID: PMC6339315
+PMID: 30658710  [Indexed for MEDLINE]
+
+
+10. Infect Immun. 2019 Mar 25;87(4). pii: e00716-18. doi: 10.1128/IAI.00716-18. Print
+2019 Apr.
+
+Moderately Neutralizing Epitopes in Nonfunctional Regions Dominate the Antibody
+Response to Plasmodium falciparum EBA-140.
+
+Salinas ND(#)(1), Paing MM(#)(2), Adhikari J(3), Gross ML(3), Tolia N(4).
+
+Author information: 
+(1)Laboratory of Malaria Immunology and Vaccinology, National Institute of
+Allergy and Infectious Diseases, National Institutes of Health, Bethesda,
+Maryland, USA.
+(2)Department of Molecular Microbiology, Washington University School of
+Medicine, Saint Louis, Missouri, USA.
+(3)Department of Chemistry, Washington University, Saint Louis, Missouri, USA.
+(4)Laboratory of Malaria Immunology and Vaccinology, National Institute of
+Allergy and Infectious Diseases, National Institutes of Health, Bethesda,
+Maryland, USA niraj.tolia@nih.gov.
+(#)Contributed equally
+
+Plasmodium falciparum erythrocyte-binding antigen 140 (EBA-140) plays a role in
+tight junction formation during parasite invasion of red blood cells and is a
+potential vaccine candidate for malaria. Individuals in areas where malaria is
+endemic possess EBA-140-specific antibodies, and individuals with high antibody
+titers to this protein have a lower rate of reinfection by parasites. The red
+blood cell binding segment of EBA-140 is comprised of two Duffy-binding-like
+domains, called F1 and F2, that together create region II. The sialic
+acid-binding pocket of F1 is essential for binding, whereas the sialic
+acid-binding pocket in F2 appears dispensable. Here, we show that immunization of
+mice with the complete region II results in poorly neutralizing antibodies. In
+contrast, immunization of mice with the functionally relevant F1 domain of region
+II results in antibodies that confer a 2-fold increase in parasite neutralization
+compared to that of the F2 domain. Epitope mapping of diverse F1 and F2
+monoclonal antibodies revealed that the functionally relevant F1 sialic
+acid-binding pocket is a privileged site inaccessible to antibodies, that the F2 
+sialic acid-binding pocket contains a nonneutralizing epitope, and that two
+additional epitopes reside in F1 on the opposite face from the sialic
+acid-binding pocket. These studies indicate that focusing the immune response to 
+the functionally important F1 sialic acid binding pocket improves the protective 
+immune response of EBA-140. These results have implications for improving future 
+vaccine designs and emphasize the importance of structural vaccinology for
+malaria.
+
+Copyright © 2019 American Society for Microbiology.
+
+DOI: 10.1128/IAI.00716-18 
+PMCID: PMC6434137 [Available on 2019-09-25]
+PMID: 30642904 
+
+
+11. Mol Cell Proteomics. 2019 Apr;18(4):642-656. doi: 10.1074/mcp.RA118.000992. Epub 
+2019 Jan 10.
+
+High-density Peptide Arrays Help to Identify Linear Immunogenic B-cell Epitopes
+in Individuals Naturally Exposed to Malaria Infection.
+
+Jaenisch T(1)(2)(3), Heiss K(4)(2), Fischer N(4)(2)(3), Geiger C(4)(2), Bischoff 
+FR(5), Moldenhauer G(5), Rychlewski L(6), Sié A(7), Coulibaly B(7), Seeberger
+PH(8), Wyrwicz LS(9), Breitling F(10), Loeffler FF(11)(8).
+
+Author information: 
+(1)From the ‡Center for Infectious Diseases, Parasitology Unit, Heidelberg
+University Hospital, Im Neuenheimer Feld 324, D 69120 Heidelberg, Germany;
+thomas.jaenisch@urz.uni-heidelberg.de.
+(2)§German Center for Infectious Disease Research, Heidelberg (DZIF).
+(3)¶HEiKA - Heidelberg Karlsruhe Research Partnership, Heidelberg University,
+Karlsruhe Institute of Technology (KIT), Germany.
+(4)From the ‡Center for Infectious Diseases, Parasitology Unit, Heidelberg
+University Hospital, Im Neuenheimer Feld 324, D 69120 Heidelberg, Germany.
+(5)‖German Cancer Research Center, Im Neuenheimer Feld 280, D 69120 Heidelberg,
+Germany.
+(6)**BioInfoBank Institute, Św. Marcin 80/82 lok. 355, 61-809 Poznań, Poland.
+(7)‡‡Centre de Recherche en Santé de Nouna, BP 02 Nouna, Rue Namory Keita,
+Burkina Faso.
+(8)§§Max Planck Institute of Colloids and Interfaces, Am Mühlenberg 1, D 14476
+Potsdam, Germany.
+(9)¶¶Department of Oncology and Radiotherapy, M Sklodowska Curie Memorial Cancer 
+Center, Wawelska 15, 02-034 Warsaw, Poland.
+(10)‖‖Institute of Microstructure Technology, Karlsruhe Institute of Technology, 
+Germany Hermann-von-Helmholtz-Platz 1, D 76344 Eggenstein-Leopoldshafen, Germany.
+(11)¶HEiKA - Heidelberg Karlsruhe Research Partnership, Heidelberg University,
+Karlsruhe Institute of Technology (KIT), Germany; felix.loeffler@mpikg.mpg.de.
+
+High-density peptide arrays are an excellent means to profile anti-plasmodial
+antibody responses. Different protein intrinsic epitopes can be distinguished,
+and additional insights are gained, when compared with assays involving the
+full-length protein. Distinct reactivities to specific epitopes within one
+protein may explain differences in published results, regarding immunity or
+susceptibility to malaria. We pursued three approaches to find specific epitopes 
+within important plasmodial proteins, (1) twelve leading vaccine candidates were 
+mapped as overlapping 15-mer peptides, (2) a bioinformatical approach served to
+predict immunogenic malaria epitopes which were subsequently validated in the
+assay, and (3) randomly selected peptides from the malaria proteome were screened
+as a control. Several peptide array replicas were prepared, employing
+particle-based laser printing, and were used to screen 27 serum samples from a
+malaria-endemic area in Burkina Faso, West Africa. The immunological status of
+the individuals was classified as "protected" or "unprotected" based on clinical 
+symptoms, parasite density, and age. The vaccine candidate screening approach
+resulted in significant hits in all twelve proteins and allowed us (1) to verify 
+many known immunogenic structures, (2) to map B-cell epitopes across the entire
+sequence of each antigen and (3) to uncover novel immunogenic epitopes.
+Predicting immunogenic regions in the proteome of the human malaria parasite
+Plasmodium falciparum, via the bioinformatics approach and subsequent array
+screening, confirmed known immunogenic sequences, such as in the leading malaria 
+vaccine candidate CSP and discovered immunogenic epitopes derived from
+hypothetical or unknown proteins.
+
+© 2019 Jaenisch et al.
+
+DOI: 10.1074/mcp.RA118.000992 
+PMCID: PMC6442360 [Available on 2020-04-01]
+PMID: 30630936 
+
+
+12. Clin Infect Dis. 2019 Jan 10. doi: 10.1093/cid/ciy1140. [Epub ahead of print]
+
+First-in-human, randomized, double-blind clinical trial of differentially
+adjuvanted PAMVAC, a vaccine candidate to prevent pregnancy-associated malaria.
+
+Mordmüller B(1)(2), Sulyok M(1), Egger-Adam D(1), Resende M(3), de Jongh WA(4),
+Jensen MH(3), Smedegaard HH(3), Ditlev SB(3), Soegaard M(4), Poulsen L(4), Dyring
+C(4), Calle CL(1), Knoblich A(1), Ibáñez J(1), Esen M(1)(2), Deloron P(5), Ndam
+N(5), Issifou S(6), Houard S(7), Howard RF(8), Reed SG(8), Leroy O(7), Luty
+AJF(5), Theander TG(3), Kremsner PG(1)(2), Salanti A(3), Nielsen MA(3).
+
+Author information: 
+(1)Institut für Tropenmedizin, Universitätsklinikum Tübingen and Deutsches
+Zentrum für Infektionsforschung (DZIF), partner site Tübingen, Germany.
+(2)Centre de Recherches Médicales de Lambaréné (CERMEL), Gabon.
+(3)Centre for Medical Parasitology at Department of Immunology and Microbiology, 
+University of Copenhagen and Department of Infectious Diseases, Copenhagen
+University Hospital, Copenhagen, Denmark.
+(4)ExpreS 2ion Biotechnologies, Agern Alle 1, Horsholm, Denmark.
+(5)Mère et Enfant face aux Infections Tropicales, Institut de Recherche pour le
+Développement, Université Paris 5, Sorbonne Paris Cité, France.
+(6)Fondation pour la Recherche Scientifique (FORS) and Institut de Recherche
+Clinique du Bénin (IRCB).
+(7)European Vaccine Initiative, Heidelberg, Germany.
+(8)Infectious Disease Research Institute, Seattle, Washington, USA.
+
+Background: Malaria in pregnancy has major impacts on mother and child health.
+The current strategy to prevent pregnancy-associated malaria (PAM) comprises
+intermittent preventive treatment and use of impregnated bednets. To complement
+existing interventions, we developed a malaria vaccine candidate aiming at
+reducing sequestration of asexual "blood-stage" parasites in the placenta, the
+major virulence mechanism in PAM.
+Methods: PAMVAC is a vaccine candidate based on a recombinant fragment of
+VAR2CSA, the Plasmodium falciparum protein responsible for binding to the
+placenta via chondroitin sulfate A (CSA). Healthy, adult malaria-naive volunteers
+were immunized with three intramuscular injections of 20 μg (n=9) or 50 μg (n=27)
+PAMVAC, adjuvanted either with Alhydrogel, or with Glucopyranosyl Lipid Adjuvant 
+in stable emulsion (GLA-SE) or in a liposomal formulation with QS21 (GLA-LSQ).
+Allocation to the three formulations was random and double-blind. Vaccines were
+given every four weeks. Volunteers were observed for six months following last
+immunization.
+Results: All PAMVAC formulations were safe and well tolerated. Altogether, 262
+adverse events (AE) occurred in 36/36 volunteers, 94 (ten Grade 2, two Grade 3)
+at least possibly related to the vaccine. No Serious AE occurred. Distribution
+and severity of AE were similar in all arms. PAMVAC was immunogenic in all
+participants. PAMVAC-specific antibody levels were highest with PAMVAC-GLA-SE.
+The antibodies inhibited binding of VAR2CSA expressing P. falciparum-infected
+erythrocytes to CSA in a standardized functional assay.
+Conclusions: PAMVAC formulated with Alhydrogel or GLA-based adjuvants was safe,
+well-tolerated and induced functionally active antibodies. PAMVAC will next be
+assessed in women before first pregnancies in an endemic area.
+
+DOI: 10.1093/cid/ciy1140 
+PMID: 30629148 
+
+
+13. PLoS One. 2019 Jan 9;14(1):e0209028. doi: 10.1371/journal.pone.0209028.
+eCollection 2019.
+
+A probabilistic model of pre-erythrocytic malaria vaccine combination in mice.
+
+Atcheson E(1), Bauza K(1), Reyes-Sandoval A(1).
+
+Author information: 
+(1)The Jenner Institute, University of Oxford, Oxford, United Kingdom.
+
+Malaria remains one the world's most deadly infectious diseases, with almost half
+a million deaths and over 150 million clinical cases each year. An effective
+vaccine would contribute enormously to malaria control and will almost certainly 
+be required for eventual eradication of the disease. However, the leading malaria
+vaccine candidate, RTS,S, shows only 30-50% efficacy under field conditions,
+making it less cost-effective than long-lasting insecticide treated bed nets.
+Other subunit malaria vaccine candidates, including TRAP-based vaccines, show no 
+better protective efficacy. This has led to increased interest in combining
+subunit malaria vaccines as a means of enhancing protective efficacy.
+Mathematical models of the effect of combining such vaccines on protective
+efficacy can help inform optimal vaccine strategies and decision-making at all
+stages of the clinical process. So far, however, no such model has been developed
+for pre-clinical murine studies, the stage at which all candidate antigens and
+combinations begin evaluation. To address this gap, this paper develops a
+mathematical model of vaccine combination adapted to murine malaria studies. The 
+model is based on simple probabilistic assumptions which put the model on a
+firmer theoretical footing than previous clinical models, which rather than
+deriving a relationship between immune responses and protective efficacy posit
+the relationship to be either exponential or Hill curves. Data from pre-clinical 
+murine malaria studies are used to derive values for unknowns in the model which 
+in turn allows simulations of vaccine combination efficacy and suggests optimal
+strategies to pursue. Finally, the ability of the model to shed light on
+fundamental biological variables of murine malaria such as the blood stage growth
+rate and sporozoite infectivity is explored.
+
+DOI: 10.1371/journal.pone.0209028 
+PMCID: PMC6326473
+PMID: 30625136 
+
+Conflict of interest statement: The authors have declared that no competing
+interests exist.
+
+
+14. Front Immunol. 2018 Dec 11;9:2866. doi: 10.3389/fimmu.2018.02866. eCollection
+2018.
+
+KILchip v1.0: A Novel Plasmodium falciparum Merozoite Protein Microarray to
+Facilitate Malaria Vaccine Candidate Prioritization.
+
+Kamuyu G(1)(2), Tuju J(1)(3), Kimathi R(1), Mwai K(1), Mburu J(1), Kibinge N(1), 
+Chong Kwan M(4), Hawkings S(4), Yaa R(1), Chepsat E(1), Njunge JM(1), Chege T(1),
+Guleid F(5), Rosenkranz M(2), Kariuki CK(6)(7), Frank R(2), Kinyanjui
+SM(1)(3)(8), Murungi LM(1), Bejon P(1), Färnert A(9)(10), Tetteh KKA(11), Beeson 
+JG(12)(13)(14), Conway DJ(15), Marsh K(1)(8)(16), Rayner JC(17), Osier
+FHA(1)(2)(3)(8).
+
+Author information: 
+(1)KEMRI-Wellcome Trust Research Programme, Centre for Geographic Medicine
+Research-Coast, Kilifi, Kenya.
+(2)Centre for Infectious Diseases, Parasitology, Heidelberg University Hospital, 
+Heidelberg, Germany.
+(3)Department of Biochemistry, Pwani University, Kilifi, Kenya.
+(4)Arrayjet, Innovative Microarray Solutions, Edinburgh, United Kingdom.
+(5)Department of Pathology, University of Cape Town, Cape Town, South Africa.
+(6)Department of Tropical and Infectious Diseases, Institute of Primate Research,
+Nairobi, Kenya.
+(7)Cellular and Molecular Immunology, Vrije Universiteit Brussels, Brussels,
+Belgium.
+(8)Centre for Tropical Medicine and Global Health, Nuffield Department of
+Clinical Medicine, University of Oxford, Oxford, United Kingdom.
+(9)Division of Infectious Diseases, Department of Medicine Solna, Karolinska
+Institutet, Stockholm, Sweden.
+(10)Department of Infectious Diseases, Karolinska University Hospital, Stockholm,
+Sweden.
+(11)Immunology and Infection Department, London School of Hygiene and Tropical
+Medicine, London, United Kingdom.
+(12)Burnet Institute, Melbourne, VIC, Australia.
+(13)Central Clinical School, Monash University, Melbourne, VIC, Australia.
+(14)Department of Medicine, University of Melbourne, Melbourne, VIC, Australia.
+(15)Pathogen Molecular Biology Department, London School of Hygiene and Tropical 
+Medicine, London, United Kingdom.
+(16)African Academy of Sciences, Nairobi, Kenya.
+(17)Wellcome Sanger Institute, Hinxton, Cambridge, United Kingdom.
+
+Passive transfer studies in humans clearly demonstrated the protective role of
+IgG antibodies against malaria. Identifying the precise parasite antigens that
+mediate immunity is essential for vaccine design, but has proved difficult.
+Completion of the Plasmodium falciparum genome revealed thousands of potential
+vaccine candidates, but a significant bottleneck remains in their validation and 
+prioritization for further evaluation in clinical trials. Focusing initially on
+the Plasmodium falciparum merozoite proteome, we used peer-reviewed publications,
+multiple proteomic and bioinformatic approaches, to select and prioritize
+potential immune targets. We expressed 109 P. falciparum recombinant proteins,
+the majority of which were obtained using a mammalian expression system that has 
+been shown to produce biologically functional extracellular proteins, and used
+them to create KILchip v1.0: a novel protein microarray to facilitate
+high-throughput multiplexed antibody detection from individual samples. The
+microarray assay was highly specific; antibodies against P. falciparum proteins
+were detected exclusively in sera from malaria-exposed but not malaria-naïve
+individuals. The intensity of antibody reactivity varied as expected from strong 
+to weak across well-studied antigens such as AMA1 and RH5 (Kruskal-Wallis H test 
+for trend: p < 0.0001). The inter-assay and intra-assay variability was minimal, 
+with reproducible results obtained in re-assays using the same chip over a
+duration of 3 months. Antibodies quantified using the multiplexed format in
+KILchip v1.0 were highly correlated with those measured in the gold-standard
+monoplex ELISA [median (range) Spearman's R of 0.84 (0.65-0.95)]. KILchip v1.0 is
+a robust, scalable and adaptable protein microarray that has broad applicability 
+to studies of naturally acquired immunity against malaria by providing a
+standardized tool for the detection of antibody correlates of protection. It will
+facilitate rapid high-throughput validation and prioritization of potential
+Plasmodium falciparum merozoite-stage antigens paving the way for urgently needed
+clinical trials for the next generation of malaria vaccines.
+
+DOI: 10.3389/fimmu.2018.02866 
+PMCID: PMC6298441
+PMID: 30619257 
+
+
+15. FEBS Lett. 2019 Feb;593(3):288-295. doi: 10.1002/1873-3468.13320. Epub 2019 Jan
+10.
+
+Interaction of merozoite surface protein 2 with lipid membranes.
+
+Lu C(1)(2), Zheng X(1)(2), Zhang W(1)(2), Zhao H(3), MacRaild CA(4), Norton
+RS(4), Zhuang Y(5), Wang J(3)(6), Zhang X(1)(2).
+
+Author information: 
+(1)School of Life Sciences, Anhui University, Hefei, China.
+(2)Anhui Provincial Engineering Technology Research Center of Microorganisms and 
+Biocatalysis, Hefei, China.
+(3)High Magnetic Field Laboratory, Key Laboratory of Magnetic Field and Ion Beam 
+Physical Biology, Hefei Institutes of Physical Science, Chinese Academy of
+Sciences, Hefei, China.
+(4)Medicinal Chemistry, Monash Institute of Pharmaceutical Sciences, Monash
+University, Parkville, Australia.
+(5)Modern Experimental Technology Center, Anhui University, Hefei, China.
+(6)Institute of Physical Science and Information Technology, Anhui University,
+Hefei, China.
+
+Merozoite surface protein 2 (MSP2) is a potential vaccine candidate against
+malaria, although its functional role is yet to be elucidated. Previous studies
+showed that MSP2 can interact with membranes, which may facilitate merozoite
+invasion into the host cell. The N-terminal 25 residues of MSP2 (MSP21-25 ),
+which may be aggregated on the merozoite surface, play a key role in the
+interaction with membranes. Here, we investigated the effects of MSP21-25
+-membrane interactions on the conformation and aggregation of MSP21-25 and on
+membrane integrity, using nanodiscs and small unilamellar vesicles as mimetics of
+cell membranes. MSP21-25 -membrane interactions induced the peptide to form
+β-structure and to aggregate, depending on the lipid composition of the membrane.
+Nonfibrillar aggregates in turn disrupted the membrane.
+
+© 2018 Federation of European Biochemical Societies.
+
+DOI: 10.1002/1873-3468.13320 
+PMID: 30588612 
+
