@@ -1,7 +1,7 @@
-Database: pubmed
-Query: ("malaria"[MeSH Terms] OR "malaria"[All Fields]) AND "vaccine candidate"[All Fields]
-Accessed: Thu 25 April, 2019 | 03:37:09
-Count: 993
+#Database: pubmed
+#Query: ("malaria"[MeSH Terms] OR "malaria"[All Fields]) AND "vaccine candidate"[All Fields]
+#Accessed: Thu 25 April, 2019 | 03:43:42
+#Count: 993
 
 1. Parasit Vectors. 2019 Apr 18;12(1):176. doi: 10.1186/s13071-019-3434-7.
 
