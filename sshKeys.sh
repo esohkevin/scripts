@@ -1,4 +1,4 @@
-#!/bin/usr/sh
+#!/bin/bash
 ##This is my first script##
 #Create ssh keys on linux
 
