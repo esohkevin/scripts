@@ -172,7 +172,7 @@ $samtools merge -b bamlist.fofn Pf3D7.bam
 echo -e "\n#~@~# Samtools mpileup - Variant Calling #~@~#\n"
 echo "Please wait..."
 
-bcftools mpileup -d 100 --thread 20 -f $ref -Oz $i -o Pf3D7.vcf.gz -b bamlist.fofn
+$bcftools mpileup -d 100 --thread 20 -f $ref -Oz $i -o Pf3D7.vcf.gz -b bamlist.fofn
 
 echo """
 	Done Running all processes!: `date`
