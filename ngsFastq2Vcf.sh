@@ -5,19 +5,14 @@ echo """
               K. Esoh, kevin.esoh@students.jkuat.ac.ke
 """
 ######### Get recent versions of samtools and bcftools, and Trimmomatic ########
-for tool in "samtools" "bcftools" "bwa" "bowtie2" "fastqc"; do
-    
+for tool in "samtools" "bcftools" "bwa" "bowtie2" "fastqc"; do    
     which $tool
-
 	if [[ $? != "0"  ]]; then
-	 
 	   if [[ $tool == "samtools" || $tool == "bcftools" ]]; then
-	      
 	      echo "$tool is not installed!"
 	      echo "If you have root access then install by running 'sudo apt-get install $tool' "
 	      echo "If you don't have root access you can install a slightly lower version which can do most of the job (It may fail at some steps)"
 	      read -p 'Would you like to install a lower version? [y|n] ' response
-	
       	         if [[ $response == [Yy] ]]; then 
 		    echo "Downloading... Please wait...";
 		    wget https://sourceforge.net/projects/samtools/files/samtools/1.0/samtools-bcftools-htslib-1.0_x64-linux.tar.bz2
@@ -27,7 +22,6 @@ for tool in "samtools" "bcftools" "bwa" "bowtie2" "fastqc"; do
 		    cp samtools-bcftools-htslib-1.0_x64-linux/bin/samtools ~/bin/
       		    samtools="samtools-bcftools-htslib-1.0_x64-linux/bin/samtools"
  		    bcftools="samtools-bcftools-htslib-1.0_x64-linux/bin/bcftools"
-
 		 else 
 		    echo "The pipeline can not work without samtools so it will terminate now. Thanks!"
 	         fi
@@ -35,24 +29,21 @@ for tool in "samtools" "bcftools" "bwa" "bowtie2" "fastqc"; do
 	      echo "Please install $tool: 'sudo apt-get install $tool'"
 	      echo "Or you visit the web to download"
       	    fi
-
 	else
 	   samtools="`which samtools`"
 	   bcftools="`which bcftools`"
 	fi
-
 done
 
 if [[ ! -f Trimmomatic-0.39/trimmomatic-0.39.jar ]]; then
-
 	wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.39.zip
 	unzip Trimmomatic-0.39.zip
 	chmod 755 Trimmomatic-0.39/trimmomatic-0.39.jar
 else
 	chmod 755 Trimmomatic-0.39/trimmomatic-0.39.jar
 fi
-cp -f Trimmomatic-0.39/adapters/* .
 
+cp -f Trimmomatic-0.39/adapters/* .
 trimmomatic="Trimmomatic-0.39/trimmomatic-0.39.jar"
 
 ############################# Block-zip all fastq files #######################
@@ -129,9 +120,7 @@ echo -e "\n#~@~# Converting SAM to BAM files #~@~#"
 echo "Please wait..."
 
 for pairedReads in ${fastqBase}; do
-
     echo "`$samtools view -@ 10 -bS -T $ref ${pairedReads}_pe.sam -o ${pairedReads}.bam`"
-
 done
 
 ################################ Sort BAM files ################################
