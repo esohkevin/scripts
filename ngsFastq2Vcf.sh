@@ -57,23 +57,15 @@ trimmomatic="Trimmomatic-0.39/trimmomatic-0.39.jar"
 
 ############################# Block-zip all fastq files #######################
 if [[ -f "*.fq" ]]; then
-
    for fastqFile in ./*.fq; do
-
        mv ${fatsqFile} ${fatsqFile/.fq/.fastq}
-
    done
-
 fi
 
 if [[ -f "*.fastq" ]]; then
-  
    for fastqFile in ./*.fastq ./*.fq; do
-
        bgzip ${fatsqFile}
-
    done
-
 fi 
 
 ########################## Now initialize global parameters ####################
@@ -86,7 +78,6 @@ ref="PlasmoDB-39_Pfalciparum3D7_Genome.fasta"
 echo -e "\n#~@~# Trimmomatic #~@~#\n" 
 
 for seqRead in ${fastqBase}; do
-
     java -jar $trimmomatic \
         PE \
         -phred33 \
@@ -99,7 +90,6 @@ for seqRead in ${fastqBase}; do
         SLIDINGWINDOW:4:15 \
         MINLEN:36 \
 	-threads 10
-
 done
 
 ###########################	   Make indexes     ############################
@@ -125,16 +115,14 @@ echo -e "\nAll alignmnets completed: `date` "
 echo -e "\n#~@~# Mapping #~@~#"
 
 for seqRead in ${fastqBase}; do
-
    bwa sampe \
 	   	$ref ${seqRead}_forward_paired.sai \
 		${seqRead}_reverse_paired.sai \
 		${seqRead}_forward_paired.fastq.gz \
 		${seqRead}_reverse_paired.fastq.gz \
 		-f ${seqRead}_pe.sam
-
 done
-	echo -e "\nDone Mapping files: `date` \n"
+   echo -e "\nDone Mapping files: `date`"
 
 ########################## Convert SAM to BAM files ############################
 echo -e "\n#~@~# Converting SAM to BAM files #~@~#"
@@ -155,11 +143,9 @@ if [[ -f "bamlist.fofn" ]]; then
 fi
 
 for bam in ${fastqBase}; do
-
     echo ` $samtools sort -O bam -T temp.bam $bam.bam -o $bam.sorted.bam `
     echo $bam.sorted.bam >> bamlist.fofn
     echo `$samtools index ${bam}.sorted.bam`
-
 done
 
 ########################### Merge sorted BAM files #############################
