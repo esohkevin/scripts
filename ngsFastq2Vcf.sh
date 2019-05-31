@@ -39,6 +39,8 @@ if [[ ! -f Trimmomatic-0.39/trimmomatic-0.39.jar ]]; then
 	wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.39.zip
 	unzip Trimmomatic-0.39.zip
 	chmod 755 Trimmomatic-0.39/trimmomatic-0.39.jar
+	mkdir -p ~/bin
+	cp Trimmomatic-0.39/trimmomatic-0.39.jar ~/bin/
 else
 	chmod 755 Trimmomatic-0.39/trimmomatic-0.39.jar
 fi
