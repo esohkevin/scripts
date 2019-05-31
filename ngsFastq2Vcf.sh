@@ -23,7 +23,7 @@ for tool in "samtools" "bcftools" "bwa" "bowtie2" "fastqc"; do
       		    samtools="samtools-bcftools-htslib-1.0_x64-linux/bin/samtools"
  		    bcftools="samtools-bcftools-htslib-1.0_x64-linux/bin/bcftools"
 		 else 
-		    echo "The pipeline can not work without samtools so it will terminate now. Thanks!"
+		    echo "The pipeline can not work without $tool so it will terminate now. Thanks!"
 	         fi
 	    elif [[ $tool -eq "bwa" || $tool -eq "bowtie2" || $tool -eq "fastqc" ]]; then
 	      echo "Please install $tool: 'sudo apt-get install $tool'"
