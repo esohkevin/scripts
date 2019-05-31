@@ -82,7 +82,7 @@ for seqRead in ${fastqBase}; do
         TRAILING:3 \
         SLIDINGWINDOW:4:15 \
         MINLEN:36 \
-	-threads 10
+	-threads 2
 done
 
 ###########################	   Make indexes     ############################
@@ -97,7 +97,7 @@ echo -e "\n#~@~# Starting alignment #~@~#"
 for readOrder in "forward_paired" "reverse_paired"; do
    for seqRead in ${fastqBase}; do
         
-       bwa aln -t 50 $ref ${seqRead}_${readOrder}.fastq.gz > "${seqRead}"_"${readOrder}".sai
+       bwa aln -t 2 $ref ${seqRead}_${readOrder}.fastq.gz > "${seqRead}"_"${readOrder}".sai
     
    done
 
