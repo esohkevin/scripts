@@ -19,7 +19,7 @@ The Third Slide
 =====================================
 
 ```{r fig.width=7, fig.height=6}
-plots(cars)
+plot(cars)
 ```
 
 ---

@@ -31,12 +31,10 @@ The Third Slide
 
 
 ```r
-plots(cars)
+plot(cars)
 ```
 
-```
-## Error in plots(cars): could not find function "plots"
-```
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 ---
 
