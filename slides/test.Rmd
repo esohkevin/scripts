@@ -1,0 +1,31 @@
+Title
+=====================================
+This is a test markdown slide
+
+By Esoh
+
+---
+
+A New Slide
+=====================================
+
+```{r}
+summary(cars)
+```
+
+---
+
+The Third Slide
+=====================================
+
+```{r fig.width=7, fig.height=6}
+plots(cars)
+```
+
+---
+
+Last Slide
+=====================================
+
+Thanks for the Lesson
+
