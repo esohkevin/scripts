@@ -82,7 +82,7 @@ for seqRead in ${fastqBase}; do
         TRAILING:3 \
         SLIDINGWINDOW:4:15 \
         MINLEN:36 \
-	-threads 10
+	-threads 2
 done
 
 ###########################	   Make indexes     ############################
@@ -97,7 +97,7 @@ echo -e "\n#~@~# Starting alignment #~@~#"
 for readOrder in "forward_paired" "reverse_paired"; do
    for seqRead in ${fastqBase}; do
         
-       bwa aln -t 50 $ref ${seqRead}_${readOrder}.fastq.gz > "${seqRead}"_"${readOrder}".sai
+       bwa aln -t 2 $ref ${seqRead}_${readOrder}.fastq.gz > "${seqRead}"_"${readOrder}".sai
     
    done
 
@@ -122,7 +122,7 @@ echo -e "\n#~@~# Converting SAM to BAM files #~@~#"
 echo "Please wait..."
 
 for pairedReads in ${fastqBase}; do
-    echo "`$samtools view -@ 10 -bS -T $ref ${pairedReads}_pe.sam -o ${pairedReads}.bam`"
+    echo "`$samtools view -@ 2 -bS -T $ref ${pairedReads}_pe.sam -o ${pairedReads}.bam`"
 done
 
 ################################ Sort BAM files ################################
@@ -149,7 +149,7 @@ $samtools merge -b bamlist.fofn Pf3D7.bam
 echo -e "\n#~@~# Samtools mpileup - Variant Calling #~@~#\n"
 echo "Please wait..."
 
-$bcftools mpileup -d 100 --thread 20 -f $ref -Oz $i -o Pf3D7.vcf.gz -b bamlist.fofn
+$bcftools mpileup -d 250 --thread 2 -f $ref -Oz $i -o Pf3D7.vcf.gz -b bamlist.fofn
 
 echo """
 	Done Running all processes!: `date`
