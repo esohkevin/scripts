@@ -18,7 +18,7 @@ iHSfrq <- paste(args[2],"iHSfrq.txt", sep="")
 qqPlot <- paste(args[2],"qqDist.png", sep="")
 iHSmain <- paste(args[2],"-iHS", sep="")
 sigOut <- paste(args[2],"Signals.txt",sep="")
-
+numchr <- args[3]
 
 ##################################################################################
 ##              Load .hap and .map files to create hap dataframe
@@ -30,7 +30,7 @@ sigOut <- paste(args[2],"Signals.txt",sep="")
 #wg.res <- scan_hh(hap)
 #wg.ihs <- ihh2ihs(wg.res)
 
-for(i in 1:22) {
+for(i in 1:numchr) {
 
   hapFile <- paste(args[1],i,".hap",sep="")
   mapFile <- mapFile <- paste(args[1],i,".map",sep="")
