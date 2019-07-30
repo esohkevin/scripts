@@ -11,14 +11,14 @@ args <- commandArgs(TRUE)
 ##										
 #hapFile <- paste(args[1],".hap", sep="")
 #mapFile <- paste(args[1],".map", sep="")
-#mapFile <- read.table("snp.info", header = F, as.is = T)
+snpInfo <- read.table("snp.info", header = F, as.is = T)
 iHSplot <- paste(args[2],"iHS.png", sep="")
 iHSresult <- paste(args[2],"iHSresult.txt", sep="")
 iHSfrq <- paste(args[2],"iHSfrq.txt", sep="")
 qqPlot <- paste(args[2],"qqDist.png", sep="")
 iHSmain <- paste(args[2],"-iHS", sep="")
 sigOut <- paste(args[2],"Signals.txt",sep="")
-numchr <- args[3]
+
 
 ##################################################################################
 ##              Load .hap and .map files to create hap dataframe
@@ -30,7 +30,7 @@ numchr <- args[3]
 #wg.res <- scan_hh(hap)
 #wg.ihs <- ihh2ihs(wg.res)
 
-for(i in 1:numchr) {
+for(i in 1:22) {
 
   hapFile <- paste(args[1],i,".hap",sep="")
   mapFile <- mapFile <- paste(args[1],i,".map",sep="")
@@ -50,10 +50,11 @@ wg.ihs<-ihh2ihs(wg.res)
 ##		Extract positions with strong signal of selection iHS(p-val)>=4
 
 ihs <- na.omit(wg.ihs$iHS)
-mapF <- read.table(mapFile)
+mapF <- snpInfo
 map <- data.frame(ID=mapF$V1, POSITION=mapF$V3, Anc=mapF$V4, Der=mapF$V5)
 ihsMerge <- merge(map, ihs, by = "POSITION")
 signals <- ihsMerge[ihsMerge[,7]>=4,]
+signals <- signals[order(signals[,5]),]
 sigpos <- signals[,2]
 
 ##################################################################################
