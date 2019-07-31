@@ -10,8 +10,8 @@ args <- commandArgs(TRUE)
 ##		Initialize parameter and output file names			
 ##			
 chr <- args[2]
-hapFile <- paste(args[1],chr,".hap", sep="")
-mapFile <- paste(args[1],chr,".map", sep="")
+hapFile <- paste(args[1],".hap", sep="")
+mapFile <- paste(args[1],".map", sep="")
 iHSplot <- paste(args[3],"iHS.png", sep="")
 iHSresult <- paste(args[3],"iHSresult.txt", sep="")
 iHSfrq <- paste(args[3],"iHSfrq.txt", sep="")
