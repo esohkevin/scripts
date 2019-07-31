@@ -38,8 +38,15 @@ if [[ $data == "sub" ]]; then
                        	--keep $6.txt \
                        	--double-id
                        
+                         # Set awk variables
+                         a='$1"\\t"'
+                         b="\"$3\""
+                         c='"\\t"$2"\\t"$4"\\t"$3'
+
+                         echo "{print `awk -v vara="$a" -v varb="$b" -v varc="$c" 'BEGIN{print vara varb varc}'`}" > awkProgFile.txt
+
                        sed '1d' chr${3}${6}${7}.legend | \
-			       awk '{print $1"\t""11""\t"$2"\t"$4"\t"$3}' > chr${3}${6}${7}.map
+			       awk -f awkProgFile.txt > chr${3}${6}${7}.map
                        sed 's/0/2/g' chr${3}${6}${7}.haps > chr${3}${6}${7}.hap
                     
                 elif [[ "$param" == "2" && $# != 5 ]]; then
@@ -57,8 +64,15 @@ if [[ $data == "sub" ]]; then
                          --keep $4.txt \
                          --double-id
                       
+                         # Set awk variables
+                         a='$1"\\t"'
+                         b="\"$3\""
+                         c='"\\t"$2"\\t"$4"\\t"$3'
+
+                         echo "{print `awk -v vara="$a" -v varb="$b" -v varc="$c" 'BEGIN{print vara varb varc}'`}" > awkProgFile.txt
+
                        sed '1d' chr${3}${4}.legend | \
-			       awk '{print $1"\t""11""\t"$2"\t"$4"\t"$3}' > chr${3}${4}.map
+			       awk -f awkProgFile.txt > chr${3}${4}.map
                        sed 's/0/2/g' chr${3}${4}.haps > chr${3}${4}.hap
                        
                 elif [[ "$param" == "3" && $# != 6 ]]; then
@@ -135,8 +149,16 @@ elif [[ $data == "all" ]]; then
                               --from-kb $4 \
                               --to-kb $5 \
                               --double-id
-               
-                        sed '1d' chr${3}${6}${7}.legend | awk '{print $1"\t""11""\t"$2"\t"$4"\t"$3}' > chr${3}${6}${7}.map
+
+                         # Set awk variables
+                         a='$1"\\t"'
+                         b="\"$3\""
+                         c='"\\t"$2"\\t"$4"\\t"$3'
+
+                         echo "{print `awk -v vara="$a" -v varb="$b" -v varc="$c" 'BEGIN{print vara varb varc}'`}" > awkProgFile.txt	
+
+                        sed '1d' chr${3}${6}${7}.legend | \
+				awk -f awkProgFile.txt > chr${3}${6}${7}.map
                         sed 's/0/2/g' chr${3}${6}${7}.haps > chr${3}${6}${7}.hap
           
                 elif [[ "$param" == "2" && $# != 5 ]]; then
@@ -154,7 +176,15 @@ elif [[ $data == "all" ]]; then
                           --out chr$3$4 \
                           --double-id
                
-                        sed '1d' chr${3}${4}.legend | awk '{print $1"\t""11""\t"$2"\t"$4"\t"$3}' > chr${3}${4}.map
+                         # Set awk variables
+                         a='$1"\\t"'
+                         b="\"$3\""
+                         c='"\\t"$2"\\t"$4"\\t"$3'
+
+                         echo "{print `awk -v vara="$a" -v varb="$b" -v varc="$c" 'BEGIN{print vara varb varc}'`}" > awkProgFile.txt
+
+                        sed '1d' chr${3}${4}.legend | \
+				awk -f awkProgFile.txt > chr${3}${4}.map
                         sed 's/0/2/g' chr${3}${4}.haps > chr${3}${4}.hap
           
           
@@ -196,14 +226,19 @@ elif [[ $data == "all" ]]; then
                 done
          
                    for chr in `(seq 1 $4)`; do
+
+		       if [[ -f "${3}${chr}.map" ]]; then
          
-                       if [[ -f "${3}${chr}.map" ]]; then
+                          awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5}' ${3}${chr}.map
          
-                        awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5}' ${3}${chr}.map
-         
-         	      fi
+         	       fi
        	   
-                 done > snp.info
+                   done > snp.info
+
+		    if [[ ! -s snp.info ]]; then
+                          rm snp.info
+                    fi
+
        
            fi
 
