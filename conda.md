@@ -22,6 +22,17 @@ Suppress all default channels and only look from specified channel
 conda install pandas --channel /home/user/path --overide-channels
 ```
 
+Add alias to local channels
+```
+conda config --set channel_alias /home/esoh/bioTools
+```
+
+Install pkgs from local channel using alias name
+```
+conda install -c bioTools <pkg>
+```
+
+
 Bioinfo pkgs
 ---
 - Picard
