@@ -42,11 +42,11 @@ Bioinfo pkgs
 - bwa
 - hisat2
 - bowtie2
-- plink1.9/2
-- emmax
-- bolt-lmm
-- eagle
-- beagle
+- plink1.9 (plink2 absent. Use linux-installed)
+- emmax (Absent. Use linux-installed)
+- bolt-lmm (Absent. Use linux-installed)
+- eagle (v0.9.4.6 available. Use linux-installed v2.4)
+- beagle (v4.1 available. Use)
 - gatk
 - bedtools
 - eigensoft
@@ -54,4 +54,12 @@ Bioinfo pkgs
 - multiqc
 - tophat
 - trimmomatic
+- gatk3 (gatk4 not available. Use linux-installed)
+> Download and unzip GATK4. Copy the gatk executable into home bin. Then run the line below to set gatk global environ variable
 
+```
+export GATK_LOCAL_JAR=~/bioTools/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+```
+
+- shapeit2
+- 
