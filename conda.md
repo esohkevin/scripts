@@ -38,7 +38,13 @@ Bioinfo pkgs
 **Install all packages without comment on availability by running the command-line below**
 ```
 conda search <pkg>
-conda install <pkg>=version [--channel | -c] <channel> 
+conda install <pkg>=version [--channel | -c] <channel>  
+```
+Example
+```
+conda search eigensoft
+conda install eigensoft=6.0.1 -c bioconda
+conda install eigensoft=6.0.1 --channel bioconda
 ```
 
 - Picard
