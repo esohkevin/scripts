@@ -35,7 +35,7 @@ conda install -c bioTools <pkg>
 
 Bioinfo pkgs
 ---
-**Install without comment on availability by running the command-line below**
+**Install all packages without comment on availability by running the command-line below**
 ```
 conda search <pkg>
 conda install <pkg>=version [--channel | -c] <channel> 
