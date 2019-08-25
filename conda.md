@@ -47,7 +47,6 @@ Bioinfo pkgs
 - bolt-lmm (Absent. Use linux-installed)
 - eagle (v0.9.4.6 available. Use linux-installed v2.4)
 - beagle (v4.1 available. Use)
-- gatk
 - bedtools
 - eigensoft
 - fastqc
