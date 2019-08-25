@@ -50,4 +50,6 @@ Bioinfo pkgs
 - gatk
 - bedtools
 - eigensoft
-- 
+- fastqc
+- multiqc
+- tophat
