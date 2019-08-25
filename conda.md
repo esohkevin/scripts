@@ -5,16 +5,16 @@ Conda pkgs
 
 Terms
 ---
-Conda channels: Sources repositories for conda pkgs. Conda forge is one such channel. Also bioconda
+Conda channels: Sources repositories for conda pkgs. Conda-forge is one such channel. Also bioconda
 
 Specifying a channel
 ```
-conda install scipy --channel conda forge
+conda install scipy --channel conda-forge
 ```
 
 More than one channels
 ```
-conda install numpy --channel conda forge --channel bioconda
+conda install numpy --channel conda-forge --channel bioconda
 ```
 
 Suppress all default channels and only look from specified channel
