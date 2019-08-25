@@ -53,3 +53,5 @@ Bioinfo pkgs
 - fastqc
 - multiqc
 - tophat
+- trimmomatic
+
