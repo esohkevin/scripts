@@ -56,7 +56,7 @@ Bioinfo pkgs
 - trimmomatic
 - gatk3 (gatk4 not available. Use linux-installed)
 > Download and unzip GATK4. Copy the gatk executable into home bin. Then run the line below to set gatk global environ variable
-Preferably, place the line in **_~/.bashrc** file
+Preferably, place the line in _**~/.bashrc**_ file
 
 ```
 export GATK_LOCAL_JAR=~/bioTools/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
