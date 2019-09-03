@@ -38,6 +38,11 @@ conda list --explicit > spec-file.txt
 conda create --name newenv --file spec-file.txt
 ```
 
+Create identical env from an env.yml file
+```
+conda env create [-f|--file] environment.yml 
+```
+
 Bioinfo pkgs
 ---
 **Install all packages without comment on availability by running the command-line below**
