@@ -19,12 +19,12 @@ conda install numpy --channel conda-forge --channel bioconda
 
 Suppress all default channels and only look from specified channel
 ```
-conda install pandas --channel /home/user/path --overide-channels
+conda install pandas --channel file:///home/user/path --overide-channels
 ```
 
 Add alias to local channels
 ```
-conda config --set channel_alias /home/esoh/bioTools
+conda config --set channel_alias file:///home/esoh/bioTools
 ```
 
 Install pkgs from local channel using alias name
@@ -32,6 +32,11 @@ Install pkgs from local channel using alias name
 conda install -c bioTools <pkg>
 ```
 
+Make a copy of all installed packages in current env and use to create a new identical env
+```
+conda list --explicit > spec-file.txt
+conda create --name newenv --file spec-file.txt
+```
 
 Bioinfo pkgs
 ---
