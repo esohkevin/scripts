@@ -5,16 +5,11 @@ if [[ $# == 2 ]]; then
 
     path_to_trim="$1"
     path_to_fq="$2"
-
-    mkdir -p ${path_to_fq}/../paired
-    mkdir -p ${path_to_fq}/../trimmed
-
-    fBase=`for i in ${path_to_fq}*1.fastq.gz ${path_to_fq}*2.fastq.gz; do echo ${i/_*}; done | sort | uniq`
+    
+    fastqBase=`for i in ${path_to_fq}*1.fastq.gz ${path_to_fq}*2.fastq.gz; do echo ${i/_*}; done | sort | uniq`
     trimmomatic="${path_to_trim}trimmomatic-0.39.jar"
     
-    fastqBase="${fBase/${path_to_fq/}/}"
-    
-    echo -e """\n\e[38;5;35m#------- Running Trimmomatic -------#\e[0m\n"""
+    echo -e """\n\e[38;5;35m#------- Running Trimmomatic -------#\e[0m\n""" 
     
     for seqRead in ${fastqBase}; do
         java -jar $trimmomatic \
@@ -31,12 +26,9 @@ if [[ $# == 2 ]]; then
             -threads 10
     done
 
-    
-
-
 else
     echo """
-	Usage: ./trimFastq.sh <path_to_trimmomatic> <path_to_fastq_files>
+	Usage: ./trimFastq.sh <path_to_trommomatic> <path_to_fastq_files>
 
 	NB: All paths should end with a forward slash '/'
 	
