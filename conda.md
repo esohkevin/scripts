@@ -5,7 +5,7 @@ Conda pkgs
 
 Terms
 ---
-Conda channels: Sources repositories for conda pkgs. Conda-forge is one such channel. Also bioconda
+Conda channels: Source repositories for conda pkgs. Conda-forge is one such channel. Also bioconda
 
 Specifying a channel
 ```
