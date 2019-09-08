@@ -86,3 +86,5 @@ export GATK_LOCAL_JAR=~/bioTools/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
 - shapeit2
 - qqman
 - admixture
+- finestructure
+- hierfstat (R)
