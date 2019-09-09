@@ -88,3 +88,6 @@ export GATK_LOCAL_JAR=~/bioTools/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
 - admixture
 - finestructure
 - hierfstat (R)
+- gcta (NA)
+- snptest
+- 
