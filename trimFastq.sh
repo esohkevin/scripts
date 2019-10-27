@@ -14,16 +14,19 @@ if [[ $# == [23] ]]; then
       dname="$(dirname $1)" # strip trailing forward slash
       s="$2"
       t=$3
-      mkdir -p paird
+      mkdir -p paired
       mkdir -p unpaired
       pdr="paired"
       udr="unpaired"
       if [[ $# == 3 ]]; then
          n="$((50/$t))"
-         cat $id | parallel --colsep "$s" echo "PE -phred33 $dname/{1} $dname/{2} $pdr/{1.}.fp.gz $pdr/{2.}.rp.gz $udr/{1.}.fu.gz $udr/{2.}.ru.gz ILLUMINACLIP:${HOME}/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads $n" | xargs -P$n -n15 trimmomatic
+         cat $id | parallel --colsep "$s" echo "PE -phred33 $dname/{1} $dname/{2} {1.}.fp.gz {1.}.fu.gz {2.}.rp.gz {2.}.ru.gz ILLUMINACLIP:${HOME}/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads $n" | xargs -P$n -n15 trimmomatic
+	 mv *.fp.gz *.rp.gz $pdr
+	 mv *.fu.gz *.ru.gz $udr
       else
-         cat $id | parallel --colsep "$s" echo "PE -phred33 $dname/{1} $dname/{2} $pdr/{1.}.fp.gz $pdr/{2.}.rp.gz $udr/{1.}.fu.gz $udr/{2.}.ru.gz ILLUMINACLIP:${HOME}/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads 1" | xargs -P5 -n15 trimmomatic
-
+         cat $id | parallel --colsep "$s" echo "PE -phred33 $dname/{1} $dname/{2} {1.}.fp.gz {1.}.fu.gz {2.}.rp.gz {2.}.ru.gz ILLUMINACLIP:${HOME}/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads 1" | xargs -P5 -n15 trimmomatic
+	 mv *.fp.gz *.rp.gz $pdr
+         mv *.fu.gz *.ru.gz $udr
       fi
       echo "Done! Results saved in '$pdr' and '$udr'"
    fi
