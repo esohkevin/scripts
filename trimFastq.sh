@@ -10,9 +10,9 @@ if [[ $# == [23] ]]; then
       echo "'conda install trimmomatic -c bioconda'"
       echo "Add bioconda channel if it doesn't already exist: 'conda config --add chennels bioconda'"
    else
-
-      drname="${1/\//}" # strip trailing forward slash
-      id="$2"
+      id=$1
+      dname="$(dirname $1)" # strip trailing forward slash
+      s="$2"
       t=$3
       mkdir -p paird
       mkdir -p unpaired
@@ -20,11 +20,12 @@ if [[ $# == [23] ]]; then
       udr="unpaired"
       if [[ $# == 3 ]]; then
          n="$((50/$t))"
-         cat $id | sed 's/=/ /g' | awk -v d="$drname" '{print d"/"$1,d"/"$2}' | parallel echo "PE -phred33 {} {} $pdr/{}.fp.gz $pdr/{}.rp.gz $udr/{}.fu.gz $udr/{}.ru.gz ILLUMINACLIP:${HOME}/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads $n -o $dr" | xargs -P$n -n17 echo
+         cat $id | parallel --colsep "$s" echo "PE -phred33 $dname/{1} $dname/{2} $pdr/{1.}.fp.gz $pdr/{2.}.rp.gz $udr/{1.}.fu.gz $udr/{2.}.ru.gz ILLUMINACLIP:${HOME}/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads $n" | xargs -P$n -n15 trimmomatic
       else
-         cat $id | sed 's/=/ /g' | awk -v d="$drname" '{print d"/"$1,d"/"$2}' | parallel echo "PE -phred33 {} {} $pdr/{}.fp.gz $pdr/{}.rp.gz $udr/{}.fu.gz $udr/{}.ru.gz ILLUMINACLIP:${HOME}/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads $n -o $dr" | xargs -P5 -n17 echo
+         cat $id | parallel --colsep "$s" echo "PE -phred33 $dname/{1} $dname/{2} $pdr/{1.}.fp.gz $pdr/{2.}.rp.gz $udr/{1.}.fu.gz $udr/{2.}.ru.gz ILLUMINACLIP:${HOME}/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads 1" | xargs -P5 -n15 trimmomatic
+
       fi
-      echo "Done! All results save in '$dr'"
+      echo "Done! Results saved in '$pdr' and '$udr'"
    fi
 # if [[ $# == 1 ]]; then
 # 
@@ -49,17 +50,20 @@ if [[ $# == [23] ]]; then
 #        done
 #     fi
 else
-    echo -e """
-	Usage: ./trimFastq.sh <dir> <idlist> <threads>
+    echo """
+	Usage: ./trimFastq.sh <idlist> <sep> <threads>
 
-          dir: Path to Fastq files
-         list: File containing paired fastq files separated by an equal (=) sign
+        idlist: File containing paired fastq files. Should be in the same path as the Fastq files
+           sep: idlist separator
 
         e.g. Note the difference in the fastq file names
 
-        ERR1823587_\e[38;5;1m1\e[0m.fastq.gz=ERR1823587_\e[38;5;1m2\e[0m.fastq.gz
-        CTRL1_S1_L001_\e[38;5;1mR1\e[0m_001.fastq.gz=CTRL1_S1_L001_\e[38;5;1mR2\e[0m_001.fastq.gz
-        ERR1823588_\e[38;5;1m1\e[0m.fastq.gz=ERR1823588_\e[38;5;1m2\e[0m.fastq.gz
+	ERR1823587_1.fastq.gz	ERR1823587_2.fastq.gz : tab ('\t') separated 
+	CTRL1_S1_L001_R1_001.fastq.gz;CTRL1_S1_L001_R2_001.fastq.gz : semi-column (';') separated
+	ERR1823588_1.fastq.gz ERR1823588_2.fastq.gz : space (' ') separated
+
+	Example:
+	trimFastq.sh list.txt '\t' 5
     """
 
 fi
