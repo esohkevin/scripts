@@ -4,14 +4,15 @@ if [[ $# == [23] ]]; then
    drname="${1/\//}" # strip trailing forward slash
    id="$2"
    t=$3
+   mkdir -p fastqced
+   dr="fastqced"
    if [[ $# == 3 ]]; then
       n="$((50/$t))" 
-      cat $id | sed 's/=/ /g' | awk -v d="$drname" '{print d"/"$1,d"/"$2}' | parallel echo "-t $t {} -o qced" | xargs -P$n -n6 fastqc
-   #cat ids.txt | parallel echo | sed 's/=/ raw\//g' | sed 's/^/raw\//1' | xargs -P5 -n2
+      cat $id | sed 's/=/ /g' | awk -v d="$drname" '{print d"/"$1,d"/"$2}' | parallel echo "-t $t {} -o $dr" | xargs -P$n -n6 fastqc
    else
-      cat $id | sed 's/=/ /g' | awk -v d="$drname" '{print d"/"$1,d"/"$2}' | parallel echo "-t 1 {} -o qced" | xargs -P5 -n6 fastqc
+      cat $id | sed 's/=/ /g' | awk -v d="$drname" '{print d"/"$1,d"/"$2}' | parallel echo "-t 1 {} -o $dr" | xargs -P5 -n6 fastqc
    fi
-      #cat $id | parallel echo "--threads  $drname/${i/=/ $drname/} -o qced/" | xargs -P -n echo
+   echo "Done! All results save in '$dr'"
 else
    echo -e """
 	Usage: runFastqc <dir> <list> <threads>
