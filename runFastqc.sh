@@ -1,29 +1,34 @@
 #!/bin/bash
 
 if [[ $# == [23] ]]; then
-   drname="${1/\//}" # strip trailing forward slash
-   id="$2"
+   id="$1"
+   dname="$2"
    t=$3
-   mkdir -p fastqced
-   dr="fastqced"
+   mkdir -p ${dname}fastqced
+   dr="${dname}fastqced/"
    if [[ $# == 3 ]]; then
       n="$((50/$t))" 
-      cat $id | sed 's/=/ /g' | awk -v d="$drname" '{print d"/"$1,d"/"$2}' | parallel echo "-t $t {} -o $dr" | xargs -P$n -n6 fastqc
+      cat $id | parallel echo "-t $t $dname{/}_1.fastq.gz $dname{/}_2.fastq.gz -o $dr" | xargs -P$n -n6 fastqc
    else
-      cat $id | sed 's/=/ /g' | awk -v d="$drname" '{print d"/"$1,d"/"$2}' | parallel echo "-t 1 {} -o $dr" | xargs -P5 -n6 fastqc
+      cat $id | parallel echo "-t 1 {/}_1.fastq.gz {/}_2.fastq.gz -o $dr" | xargs -P5 -n6 fastqc
    fi
-   echo "Done! All results save in '$dr'"
+   echo "Done! All results saved in '$dr'"
 else
    echo -e """
-	Usage: runFastqc <dir> <list> <threads>
+	Usage: runFastqc <idlist> <fpath> <threads>
+
+	 idlist: File containing SRA run accessions. (NB: Must be in same path as fastq files)
+          fpath: Path to fastq files. (NB: Must end with a forward '/' slash)
+        threads: Optional [default = 1]
+
+        e.g.: File content may be of either format or both
+        
+        ftp.sra.ebi.ac.uk/vol1/err/ERR182/007/ERR1823587
+        ftp.sra.ebi.ac.uk/vol1/err/ERR182/008/ERR1823588
+        ftp.sra.ebi.ac.uk/vol1/err/ERR182/009/ERR1823589
+        ERR1823590
+        ERR1823591
+        ERR1823592
 	
-          dir: Path to Fastq files
-         list: File containing paired fastq files separated by an equal (=) sign
-
-	e.g. Note the difference in the fastq file names
-
-	ERR1823587_\e[38;5;1m1\e[0m.fastq.gz=ERR1823587_\e[38;5;1m2\e[0m.fastq.gz
-	CTRL1_S1_L001_\e[38;5;1mR1\e[0m_001.fastq.gz=CTRL1_S1_L001_\e[38;5;1mR2\e[0m_001.fastq.gz
-	ERR1823588_\e[38;5;1m1\e[0m.fastq.gz=ERR1823588_\e[38;5;1m2\e[0m.fastq.gz
     """
 fi
