@@ -5,9 +5,10 @@ export PATH=${PATH}:/BIODATA/StudentsHome/bin
 if [[ $# == 2 ]]; then
 
     ref="$1"
+    bref="$(basename $ref)"
     paired_path="$2"
     
-    fastqBase=`for i in ${paired_path}*forward_paired.fastq.gz ${paired_path}*reverse_paired.fastq.gz; do echo ${i/_*}; done | sort | uniq`
+    fastqBase=$(for i in ${paired_path}*forward_paired.fastq.gz ${paired_path}*reverse_paired.fastq.gz; do echo ${i/_*}; done | sort | uniq)
     
     echo -e "\n#~@~# Indexing  Reference sequence #~@~#"
     

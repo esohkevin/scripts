@@ -1,7 +1,3 @@
-#Database: pubmed
-#Query: ("mitochondria"[MeSH Terms] OR "mitochondria"[All Fields]) AND ("anemia, sickle cell"[MeSH Terms] OR ("anemia"[All Fields] AND "sickle"[All Fields] AND "cell"[All Fields]) OR "sickle cell anemia"[All Fields] OR ("sickle"[All Fields] AND "cell"[All Fields] AND "disease"[All Fields]) OR "sickle cell disease"[All Fields])
-#Accessed: Wed 30 October, 2019 | 10:16:42
-#Count: 22
 
 1. Adv Exp Med Biol. 2020;1131:625-648. doi: 10.1007/978-3-030-12457-1_25.
 
@@ -492,7 +488,35 @@ PMCID: PMC4646035
 PMID: 26396189  [Indexed for MEDLINE]
 
 
-11. PLoS One. 2015 May 29;10(5):e0128694. doi: 10.1371/journal.pone.0128694.
+11. Mitochondrial DNA A DNA Mapp Seq Anal. 2016 Sep;27(5):3481-2. doi:
+10.3109/19401736.2015.1066358. Epub 2015 Aug 10.
+
+Characterization of the complete mitochondrial genome of Sickle pomfret
+Taractichthys steindachneri (Perciformes: Bramidae).
+
+Li W(1), Tian S(1)(2)(3), Zhu J(1)(2)(3), Wu F(1)(2)(3), Wang K(1), Dai
+X(1)(2)(3).
+
+Author information: 
+(1)a College of Marine Sciences, Shanghai Ocean University , Shanghai , P.R.
+China .
+(2)b National Engineering Research Center for Oceanic Fisheries , Shanghai ,
+China , and.
+(3)c Scientific Observing and Experimental Station of Oceanic Fisheries Resources
+and Environment, Ministry of Agriculture , Shanghai , P.R. China.
+
+The complete mitogenome sequence of Taractichthys steindachneri was sequenced and
+analyzed in this study. The complete mitogenome of T. steindachneri is 16 723 bp 
+in length, which contains 22 transfer RNAs, 2 ribosomal RNAs, 13 protein-coding
+genes and 2 non-coding region, a rep region and a control region (D-loop). This
+study will be useful for studying on the molecular systematic, taxonomic status
+and conservation genetics.
+
+DOI: 10.3109/19401736.2015.1066358 
+PMID: 26258504  [Indexed for MEDLINE]
+
+
+12. PLoS One. 2015 May 29;10(5):e0128694. doi: 10.1371/journal.pone.0128694.
 eCollection 2015.
 
 Mechanism of testosterone deficiency in the transgenic sickle cell mouse.
@@ -536,7 +560,7 @@ PMCID: PMC4449127
 PMID: 26023917  [Indexed for MEDLINE]
 
 
-12. Proc Natl Acad Sci U S A. 2014 Sep 30;111(39):E4110-8. doi:
+13. Proc Natl Acad Sci U S A. 2014 Sep 30;111(39):E4110-8. doi:
 10.1073/pnas.1405023111. Epub 2014 Sep 15.
 
 Hemolysis-induced lethality involves inflammasome activation by heme.
@@ -581,7 +605,7 @@ PMCID: PMC4191786
 PMID: 25225402  [Indexed for MEDLINE]
 
 
-13. Blood. 2014 May 1;123(18):2864-72. doi: 10.1182/blood-2013-09-529420. Epub 2014
+14. Blood. 2014 May 1;123(18):2864-72. doi: 10.1182/blood-2013-09-529420. Epub 2014
 Mar 27.
 
 Platelet bioenergetic screen in sickle cell patients reveals mitochondrial
@@ -619,7 +643,7 @@ PMCID: PMC4007612
 PMID: 24677541  [Indexed for MEDLINE]
 
 
-14. Transfusion. 2013 Feb;53(2):424-37. doi: 10.1111/j.1537-2995.2012.03774.x. Epub
+15. Transfusion. 2013 Feb;53(2):424-37. doi: 10.1111/j.1537-2995.2012.03774.x. Epub
 2012 Jul 15.
 
 Oxygen: the poison is in the dose.
@@ -654,7 +678,7 @@ DOI: 10.1111/j.1537-2995.2012.03774.x
 PMID: 22804568  [Indexed for MEDLINE]
 
 
-15. Adv Exp Med Biol. 2004;559:211-7.
+16. Adv Exp Med Biol. 2004;559:211-7.
 
 Erythrocyte ion channels in regulation of apoptosis.
 
@@ -700,7 +724,7 @@ DOI: 10.1007/0-387-23752-6_20
 PMID: 18727242  [Indexed for MEDLINE]
 
 
-16. Toxicol Lett. 2005 Jul 4;157(3):175-88. Epub 2005 Apr 7.
+17. Toxicol Lett. 2005 Jul 4;157(3):175-88. Epub 2005 Apr 7.
 
 Free heme toxicity and its detoxification systems in human.
 
@@ -736,7 +760,7 @@ DOI: 10.1016/j.toxlet.2005.03.004
 PMID: 15917143  [Indexed for MEDLINE]
 
 
-17. Mol Pharmacol. 2004 Oct;66(4):899-908. Epub 2004 Jun 29.
+18. Mol Pharmacol. 2004 Oct;66(4):899-908. Epub 2004 Jun 29.
 
 Sodium 4-phenylbutyrate protects against cerebral ischemic injury.
 
@@ -773,7 +797,7 @@ DOI: 10.1124/mol.104.001339
 PMID: 15226415  [Indexed for MEDLINE]
 
 
-18. Cell Mol Biol (Noisy-le-grand). 2004 Mar;50(2):117-38.
+19. Cell Mol Biol (Noisy-le-grand). 2004 Mar;50(2):117-38.
 
 Band 3 and its alterations in health and disease.
 
@@ -819,7 +843,187 @@ sickle cell anemia where the increased oxidation causes accelerated aging of ban
 PMID: 15095783  [Indexed for MEDLINE]
 
 
-19. Br J Haematol. 1975 Oct;31(2):135-48.
+20. EMBO J. 2002 Jul 1;21(13):3327-36.
+
+GH3, a novel proapoptotic domain in Drosophila Grim, promotes a mitochondrial
+death pathway.
+
+Clavería C(1), Caminero E, Martínez-A C, Campuzano S, Torres M.
+
+Author information: 
+(1)Departamento de Inmunología y Oncología, Centro Nacional de Biotecnología,
+CSIC-UAM, Campus de Cantoblanco, E-28049 Madrid, Spain.
+
+Grim encodes a protein required for programmed cell death in Drosophila. The Grim
+N-terminus induces apoptosis by disrupting IAP blockage of caspases; however,
+N-terminally-deleted Grim retains pro apoptotic activity. We describe GH3, a 15
+amino acid internal Grim domain absolutely required for its proapoptotic activity
+and sufficient to induce cell death when fused to heterologous carrier proteins. 
+A GH3 homology region is present in the Drosophila proapoptotic proteins Reaper
+and Sickle. The GH3 domain and the homologous regions in Reaper and Sickle are
+predicted to be structured as amphipathic alpha-helixes. During apoptosis
+induction, Grim colocalizes with mitochondria and cytochrome c in a GH3-dependent
+but N-terminal- and caspase activity-independent manner. When Grim is
+overexpressed in vivo, both the N-terminal and the GH3 domains are equally
+necessary, and cooperate for apoptosis induction. The N-terminal and GH3 Grim
+domains thus activate independent apoptotic pathways that synergize to induce
+programmed cell death efficiently.
+
+DOI: 10.1093/emboj/cdf354 
+PMCID: PMC126101
+PMID: 12093734  [Indexed for MEDLINE]
+
+
+21. Arch Toxicol. 2000 Jan;73(10-11):573-80.
+
+Effects of magnesium deficiency on joint cartilage in immature beagle dogs:
+immunohistochemistry, electron microscopy, and mineral concentrations.
+
+Stahlmann R(1), Kühner S, Shakibaei M, Flores J, Vormann J, van Sickle DC.
+
+Author information: 
+(1)Institut für Klinische Pharmakologie und Toxikologie, Abteilung Toxikologie,
+Universitätsklinikum Benjamin Franklin, Freie Universität Berlin, Garystr. 5,
+14195 Berlin, Germany.
+
+Quinolone-induced chondrotoxicity is possibly associated with the
+magnesium-chelating properties of quinolones. This toxic effect seems to be
+restricted to a rather short time period during postnatal development as shown in
+rats and dogs. We studied developmental changes of the integrin pattern on canine
+chondrocytes (e.g. the alpha(v)beta(3)- or alpha(5)beta(1)-integrin), because
+integrin function depends on divalent cations, as well as the matrix composition 
+(e.g., collagen type II, fibronectin), in 11-, 18-, and 55-week-old Beagles (n=8)
+by immunohistochemistry. We also analyzed the magnesium and calcium content by
+atomic absorption spectroscopy in cartilage and bone and studied the effects of a
+magnesium-deficient diet on joint cartilage in four immature Beagles (18 weeks
+old at necropsy). The dogs were fed the magnesium-deficient diet for 40 to 46
+days. All dogs exhibited gait alterations ('limping') after 4 weeks on the
+magnesium-deficient diet. Male, magnesium-deficient dogs exhibited pronounced
+weakness in their front legs; in one of these dogs the front legs were
+hyperextended to a 90 degrees angle. We observed no significant differences in
+the integrin pattern in samples from dogs at different developmental stages or in
+magnesium-deficient dogs in comparison to age-matched controls. Localization of
+fibronectin in the joint cartilage was found to vary with the age of the dogs as 
+well as with the site of collection. In the middle zone of immature joint
+cartilage, corresponding to the predilective site of quinolone-induced cartilage 
+lesions, we observed a slight increase in staining with the fibronectin antibody 
+in some samples from magnesium-deficient dogs. Electron microscopy revealed
+alterations in chondrocytes from the magnesium-deficient dogs (e.g., swollen
+mitochondria and enlarged endoplasmic reticulum) which are also seen after
+treatment with quinolones. In summary, we found no significant differences of the
+integrin pattern on chondrocytes from joint cartilage of dogs at various
+developmental stages. However, magnesium deficiency in immature dogs induced
+similar clinical symptoms as quinolone treatment as well as distinct alterations 
+in chondrocytic fibronectin staining and their ultrastructure. This corroborates 
+our findings in rats where magnesium chelation is an important event in
+quinolone-induced chondrotoxicity.
+
+DOI: 10.1007/s002040050010 
+PMID: 10663389  [Indexed for MEDLINE]
+
+
+22. Arch Toxicol. 2000 Jan;73(10-11):564-72.
+
+Chondrotoxicity of ciprofloxacin in immature beagle dogs: immunohistochemistry,
+electron microscopy and drug plasma concentrations.
+
+Stahlmann R(1), Kühner S, Shakibaei M, Schwabe R, Flores J, Evander SA, van
+Sickle DC.
+
+Author information: 
+(1)Institut für Klinische Pharmakologie und Toxikologie, Abteilung Toxikologie,
+Universitätsklinikum Benjamin Franklin, Freie Universität Berlin, Garystr. 5,
+14195 Berlin, Germany.
+
+The systemic effects of ciprofloxacin in immature Beagles were studied. Dogs of
+10-11 weeks were dosed orally for 5 days with 0 (n=3), 30 (n=5) and 200 (n=5) mg 
+ciprofloxacin/kg body wt. Plasma concentrations were measured by high-performance
+liquid chromatography (HPLC) 1 h after dosing (assuming to be peak
+concentrations). In view of the high doses used, the plasma concentrations were
+rather low and declined during the study period. For example, plasma
+concentrations in the high dose group were 6.6 +/- 0.9 mg/l (day 1), 3.9 +/- 1.4 
+mg/l (day 3), and 2.6 +/- 1.6 mg/l (day 5). In control dogs and in dogs treated
+with the low dose of ciprofloxacin no pathological changes were seen by light
+microscopy. However, cleft formation and erosions were observed in joint
+cartilage from two of five dogs treated with 200 mg/kg. It is noteworthy that
+despite the high dose used cartilage lesions were not detectable in all five dogs
+of this group by light microscopy. Using antibodies against cell membrane
+receptors (e.g. the alpha(5)beta(1)-integrin) or matrix components (fibronectin, 
+collagen II) the articular cartilage effects were studied in detail by
+immunohistochemistry. The most sensitive alteration was an increase in
+fibronectin which was detectable in the vicinity of the lesions in cartilage
+samples from the group of dogs administered the high dose. No clear-cut changes
+were seen with the use of antibodies against other matrix components. Electron
+microscopy revealed typical alterations in chondrocytes from dogs treated with
+ciprofloxacin: e.g., swollen mitochondria and enlarged rough endoplasmic
+reticulum. These changes were much more pronounced in dogs from the high dose
+group than in dogs from the low dose group. Our main conclusion is that after
+oral administration ciprofloxacin exhibits rather low chondrotoxicity, even in
+the most sensitive species known to date. This correlates with the findings in
+humans that ciprofloxacin seems to be less chondrotoxic than pefloxacin or other 
+quinolones.
+
+DOI: 10.1007/s002040050009 
+PMID: 10663388  [Indexed for MEDLINE]
+
+
+23. Arch Dermatol Res. 1978 Sep 28;263(1):47-58.
+
+Effects of 8-methoxypsoralen plus 365 nm UVA light on Candida albicans cells. An 
+electron microscopic study.
+
+Scherwitz C, Rassner G, Martin R.
+
+Candida (C) albicans cells were exposed to 8-Methoxypsoralen (8-MOP)
+concentrations of 1.0 microgram/ml and 10.0 microgram/ml medium and irradiated
+with 365 nm light. The amount of energy emitted was 4.8 J/cm2. Two divergent
+types of cell damage occured concerning yeast cell cytoplasm and cell wall. Two
+hours after exposure cytoplasmic changes involving mitochondria, which showed
+irregularities in shape, blurred appearance or loss of mitochondrial cristae and 
+outer membrane were seen. The number of vacuoles was increased. The cytoplasm
+showed large electron transparent areas, the cytoplasmic membrane disappeared in 
+some areas completely. Nucleus and nuclear envelope usually remained intact in
+early stages. 24h after exposure conspicuous cell wall alterations were observed 
+in addition to cytoplasmic changes. Newly produced cell wall material formed
+ball-like protrusions or was adherent sickle-shaped to the cell wall. The
+investigations strongly suggest that the results found after 8-MOP-UVA treatment 
+of C. albicans cells can not be interpreted in the sense of a general cytotoxic
+effect. Apparently it takes the form of a combination of events involving
+regressive and progressive alterations.
+
+
+PMID: 363068  [Indexed for MEDLINE]
+
+
+24. Arch Dermatol Res. 1978;263(1):47-58.
+
+Effects of 8-methoxypsoralen plus 365 nm UVA light on Candida albicans cells. An 
+electron microscopic study.
+
+Scherwitz C, Rassner G, Martin R.
+
+Candida (C.) albicans cells were exposed to 8-Methoxypsoralen (8-MOP)
+concentrations of 1.0 microgram/ml and 10.0 micrograms/ml medium and irradiated
+with 365 nm light. The amount of energy emitted was 4.8 J/cm2. Two divergent
+types of cell damage occured concerning yeast cell cytoplasm and cell wall. Two
+hours after exposure cytoplasmic changes involving mitochondria, which showed
+irregularities in shape, blurred appearance or loss of mitochondrial cristae and 
+outer membrane were seen. The number of vacuoles was increased. The cytoplasm
+showed large electron transparent areas, the cytoplasmic membrane disappeared in 
+some areas completely. Nucleus and nuclear envelope usually remained intact in
+early stages. 24 h after exposure conspicuous cell wall alterations were observed
+in addition to cytoplasmic changes. Newly produced cell wall material formed
+ball-like protrusions or was adherent sickle-shaped to the cell wall. The
+investigations strongly suggest that the results found after 8-MOP-UVA treatment 
+of C. albicans cells can not be interpreted in the sense of a general cytotoxic
+effect. Apparently it takes the form of a combination of events involving
+regressive and progressive alterations.
+
+
+PMID: 394689  [Indexed for MEDLINE]
+
+
+25. Br J Haematol. 1975 Oct;31(2):135-48.
 
 Ultrastructural studies of the bone marrow in sickle cell anaemia. I. The
 structure of sickled erythrocytes and reticulocytes and their phagocytic
@@ -854,7 +1058,7 @@ DOI: 10.1111/j.1365-2141.1975.tb00844.x
 PMID: 1201233  [Indexed for MEDLINE]
 
 
-20. J Cell Biol. 1969 Dec;43(3):448-55.
+26. J Cell Biol. 1969 Dec;43(3):448-55.
 
 Optical diffraction studies of crystalline structures in electron micrographs.
 II. Crystalline inclusions in mitochondria of human hepatocytes.
@@ -876,7 +1080,7 @@ PMCID: PMC2107803
 PMID: 5351401  [Indexed for MEDLINE]
 
 
-21. Trans Am Ophthalmol Soc. 1968;66:788-826.
+27. Trans Am Ophthalmol Soc. 1968;66:788-826.
 
 Vascular changes in the bulbar conjunctiva associated with sickle-cell disease:
 some observations on fine structure.
@@ -888,7 +1092,7 @@ PMCID: PMC1310317
 PMID: 5720854  [Indexed for MEDLINE]
 
 
-22. Med Welt. 1967 Dec 16;50:3020-6.
+28. Med Welt. 1967 Dec 16;50:3020-6.
 
 [Significance of disorders of hemoglobin synthesis for the clinical practice].
 
