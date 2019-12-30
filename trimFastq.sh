@@ -13,11 +13,11 @@ if [[ $# == [23] ]]; then
       id=$1
       dname=$2 # strip trailing forward slash
       t=$3
-      mkdir -p ${dname}paired
-      mkdir -p ${dname}unpaired
-      pdr="${dname}paired/"
-      udr="${dname}unpaired/"
-      if [[ $# == 2 ]]; then
+      mkdir -p ${dname}../paired
+      mkdir -p ${dname}../unpaired
+      pdr="${dname}../paired/"
+      udr="${dname}../unpaired/"
+      if [[ $# == 3 ]]; then
          n="$((50/$t))"
 	 cat $id | parallel echo "PE -phred33 $dname{/}_1.fastq.gz $dname{/}_2.fastq.gz $dname{/}_fp.fastq.gz $dname{/}_fu.fastq.gz $dname{/}_rp.fastq.gz $dname{/}_ru.fastq.gz ILLUMINACLIP:$HOME/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads $t" | xargs -P$n -n15 trimmomatic
 
