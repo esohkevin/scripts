@@ -103,3 +103,13 @@ export GATK_LOCAL_JAR=~/bioTools/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
 - snptest
 - hapFlk (selection scan)
 - phangorn (genetic trees)
+- vtools (bioconda) ***NGS, Exome Seq Analysis***
+- modeller
+
+```
+conda config --add channels salilab
+KEY_MODELLER='XXX'
+conda install modeller
+```
+
+

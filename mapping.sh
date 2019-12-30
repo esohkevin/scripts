@@ -9,6 +9,10 @@ if [[ $# == [34] ]]; then
     t=$4
     mkdir -p ${dname}../aligned
     alnd="${dname}../aligned/"
+    bref="$(basename $ref)"
+    paired_path="$2"
+    
+    fastqBase=$(for i in ${paired_path}*forward_paired.fastq.gz ${paired_path}*reverse_paired.fastq.gz; do echo ${i/_*}; done | sort | uniq)
     
     echo -e "\n#~@~# Indexing  Reference sequence #~@~#"
     #hisat2-build $ref ${ref/.fa*/}
