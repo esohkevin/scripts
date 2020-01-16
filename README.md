@@ -1,5 +1,7 @@
 Repo for my scripts
 ---
+![samtools filtering options](https://github.com/esohkevin/scripts/blob/master/samFilter.png)
+
 - Python
 - Shell
 - R
