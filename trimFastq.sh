@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $# == [23] ]]; then
+if [[ $# == [45] ]]; then
 
    which trimmomatic
    if [[ $? != 0 ]]; then
@@ -12,14 +12,16 @@ if [[ $# == [23] ]]; then
    else
       id=$1
       dname=$2 # strip trailing forward slash
-      t=$3
+      leadx=$3
+      trailx=$4
+      t=$5
       mkdir -p ${dname}../paired
       mkdir -p ${dname}../unpaired
       pdr="${dname}../paired/"
       udr="${dname}../unpaired/"
       if [[ $# == 3 ]]; then
          n="$((50/$t))"
-	 cat $id | parallel echo "PE -phred33 $dname{/}_1.fastq.gz $dname{/}_2.fastq.gz $dname{/}_fp.fastq.gz $dname{/}_fu.fastq.gz $dname{/}_rp.fastq.gz $dname{/}_ru.fastq.gz ILLUMINACLIP:$HOME/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:38 TRAILING:38 SLIDINGWINDOW:4:15 MINLEN:36 -threads $t" | xargs -P$n -n15 trimmomatic
+	 cat $id | parallel echo "PE -phred33 $dname{/}_1.fastq.gz $dname{/}_2.fastq.gz $dname{/}_fp.fastq.gz $dname{/}_fu.fastq.gz $dname{/}_rp.fastq.gz $dname{/}_ru.fastq.gz ILLUMINACLIP:$HOME/bioTools/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t" | xargs -P$n -n15 trimmomatic
 
 	 mv ${dname}*_fp.fastq.gz ${dname}*_rp.fastq.gz $pdr
          mv ${dname}*_fu.fastq.gz ${dname}*_ru.fastq.gz $udr
@@ -34,11 +36,12 @@ if [[ $# == [23] ]]; then
    fi
 else
     echo """
-	Usage: ./trimFastq.sh <idlist> <fpath> <threads>
+	Usage: ./trimFastq.sh <idlist> <fpath> <leading> <trailing> <threads>
 
 	 idlist: File containing SRA run accessions. (NB: Must be in same path as fastq files)
 	  fpath: Path to fastq files. (NB: Must end with a forward '/' slash)
 	threads: Optional [default = 1]
+
 
 	e.g.: File content may be of either format or both
 	
