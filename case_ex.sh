@@ -11,7 +11,7 @@ name=$1
 	esoh) echo "Gentle-Kind-Generous-Handsome birth";;
 	nahsh) echo "Musician";;
 	arnold) echo "Strongest man";;
-	val) echo "Beauty";;
+	maddow) echo "Beauty";;
 	cathy) echo "Strong woman";;
 	eli) echo "Cool girl";;
 	frank) echo "Genious";;
@@ -22,9 +22,9 @@ fi
 
 #read -p "Please enter your username/userid: " ID; 
 case $(echo $name | tr [:upper:] [:lower:] ) in 
-	esoh|0) echo "Welcome Esoh";; 
-	isaac|1) echo "Welcome Isaac";; 
-	jo|2) echo "Welcome Jo";; 
+	eso[aA0-zZ9]|0) echo "Welcome Esoh";; 
+	isa*c|1) echo "Welcome Isaac";; 
+	j?|2) echo "Welcome Jo";; 
 	"") echo "Please specify an ID";; 
 	*) echo "User $name doesn't exist in the database";; 
 esac
