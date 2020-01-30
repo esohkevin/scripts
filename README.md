@@ -113,5 +113,9 @@ conda config --add channels salilab
 KEY_MODELLER='XXX'
 conda install modeller
 ```
+- Pymol
 
-
+```
+conda config --prepend channels schrodinger
+conda install -c schrodinger pymol
+```
