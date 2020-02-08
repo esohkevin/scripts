@@ -6,12 +6,12 @@ function usage() {
 	echo """
 		This program takes in an parses arguments
 
-		-i [invcf]	<str>		:VCF input file. Specify the path [Required]
-		-o [out] 	<str>		:Output file [default: invcf_base.out]
-		-n [nchr] 	<int>		:Number chromosomes you wish to run [default: 1]
-		-t [threads] 	<int>		:Number of extra threads you wish to use [default: 1]
-		-T [thresh] 	<int>		:The iHS threshold you wish to set [default: computed on the fly]
-		-h [help] 	<str>		:Show this help message
+		-i,--i [invcf]		<str>		:VCF input file. Specify the path [Required]
+		-o,--o [out] 		<str>		:Output file [default: invcf_base.out]
+		-n,--n [nchr] 		<int>		:Number chromosomes you wish to run [default: 1]
+		-t,--t [threads] 	<int>		:Number of extra threads you wish to use [default: 1]
+		-T,--T [thresh] 	<int>		:The iHS threshold you wish to set [default: computed on the fly]
+		-h,--h [help] 		<str>		:Show this help message
 	"""
 }
 
