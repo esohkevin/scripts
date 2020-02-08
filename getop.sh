@@ -40,14 +40,20 @@ function usage() {
                 -t,--threads     <int>           :Number of extra threads you wish to use [default: 1]
                 -T,--thresh      <int>           :The iHS threshold you wish to set [default: computed on the fly]
                 -h,--help        <NULL>          :Show this help message
-		-v,--verbose	 <NULL>		 :Verbose
+		-v,--verbose     <NULL>		 :Verbose
         """
 }
 
 temp=`getopt -o "hi:o:n:t:T:v" -l "help,invcf:,out:,nchr:,threads:,thresh:,verbose" -- "$@"`
-  VERBOSE=false
-  DEBUG=false
-  eval set -- "$temp"
+
+if [ $? != 0 ]; then 
+   echo "Terminating..." 1>&2; 
+   exit 1; 
+fi
+
+VERBOSE=false
+DEBUG=false
+eval set -- "$temp"
 
 while true; do
     case "$1" in
@@ -63,7 +69,7 @@ while true; do
     esac
 done
 
-#-------------------------------------- ARGS ---------------------------------------
+#-------------------------------------- PRINT ARGS -----------------------------------
 sleep 1
 echo "Arguments received"
 echo -e "INPUT: $inv\nOUTPUT: $out\nNUMCHR: $nc\nTHREADS: $thr\nTHRESH: $thresh\n"
