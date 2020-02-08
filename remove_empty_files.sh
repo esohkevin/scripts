@@ -4,7 +4,7 @@ for i in *; do
    if [[ -e $i ]] && [[ ! -d $i ]]; then
       if [ -s $i ]; then 
          echo "$i is not empty"; 
-      else echo "$i is empty" && read -p 'would you like to remove it? [y/n]: ' res; 
+      else echo "$i is empty" && read -p 'would you like to remove it? [y/n]: ' res;
          if [[ $res == [Yy] ]]; then 
             echo -e "You have chosen to remove $i\n"; 
             sleep 1; 
