@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 
-while getopt -l "vcf:,oprefix:nchr:,threads::help" -o "v:o:c:t::h" -- $@; do
-   usage() { printf "\nUsage: %s: [-v|--vcf] [-o|--oprefix] [-c|--nchr] [-t|--threads]\n" $(basename $0) 1>&2; exit 1; }
+while getopt -l "invcf:,out:,nchr:,threads:,:help" -o "i:o:c:t:h" -- $@; do
+   usage() { printf "Usage: %s: [-i|--invcf] [-o|--out] [-c|--nchr] [-t|--threads]\n" $(basename $0) 1>&2; exit 1; }
    case $@ in
-     v) vcfin=$OPTARG;;
-     o) oprfx=$OPTARG;;
-     c) nchr=$OPTARG;;
-     t) thr=$OPTARG;;
-     h) usage;;
+     i|invcf) vcfin=$OPTARG;;
+     o|out) oprfx=$OPTARG;;
+     c|nchr) nchr=$OPTARG;;
+     t|threads) thr=$OPTARG;;
+     h|help) usage;;
      "") usage;;
      #*) usage;;
    esac
+   echo -e "Arguments\nINPUT: $vcfin\nOUTPUT: $oprfx\nNUMCHR: $nchr\nTHREADS: $thr\n"
+   sleep 1;
+   echo "Starting job..."
+   sleep 1;
+   echo "<<< Progress... >>>"
+   break
 done
