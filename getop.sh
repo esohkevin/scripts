@@ -1,77 +1,36 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-<<<<<<< HEAD
-# while getopt -l "vcf:,oprefix:nchr:,threads::help" -o "v:o:c:t::h" -- $@; do
-#    usage() { printf "\nUsage: %s: [-v|--vcf] [-o|--oprefix] [-c|--nchr] [-t|--threads]\n" $(basename $0) 1>&2; exit 1; }
-#    case $@ in
-#      v) vcfin=$OPTARG;;
-#      o) oprfx=$OPTARG;;
-#      c) nchr=$OPTARG;;
-#      t) thr=$OPTARG;;
-#      h) usage;;
-#      "") usage;;
-#      #*) usage;;
-#    esac
-# done
-function show_help {
-    echo "Usage: ./qsub_run.sh -f <cmdfile>"
-    echo "  Submit commands to a qsub system, where <cmdfile> is a file containing a list of commands to execute, one per line."
-    echo "OPTIONS:"
-    echo "  -f <val>: The name of the command file to submit. REQUIRED."
-    echo "  -n <val>: Set the number of processes per node requested in the qsub script. (Default: 1)"
-    echo "  -w <val>: Set the walltime, in hours, requested in the qsub script. (Default: 120)"
-    echo "  -s <val>: Set the sleep time in seconds between job submissions, which prevents the submission system from being overwhelmed. (Default: 10)"
-    echo "  -m <val>: Set the maximum number of commands per qsub job. Using a large value is significantly more efficient than running each individually, provided you stay under the walltime. (Default: number of nodes)"
-    echo "  -q <val>: Change the command run to process the script. This can be used for some non-qsub systems. (Default: \"qsub\")"
-    echo "  -p      : Pretend: do not actually run the commands, but generate the qsub scripts for examination."
-    echo "  -P <val>: Parallel execution tool. If set, all commands in a job will be written to a file and called via <val>. \"-P parallel\" is highly recommended if you have installed GNU parallel. If you have not, you can still use this tool with -P \"\" but -m will not work, and you MUST end each command with & for it to run in parallel! See http://www.gnu.org/software/parallel .  Default: parallel" 
-    echo "  -v      : verbose mode."
-    echo "  -h      : This help."
-    exit 0
+function usage() {
+	printf "Usage: %s [-i|--invcf] [-o|--out] [-n|--nchr] ...\n" $(basename $0)
+	echo """
+		This program takes in an parses arguments
+
+		-i <str>	:VCF input file. Specify the path [Required]
+		-o <str>	:Output file [default: invcf_base.out]
+		-n <int>	:Number chromosomes you wish to run [default: 1]
+		-t <int>	:Number of extra threads you wish to use [default: 1]
+		-T <int>	:The iHS threshold you wish to set [default: computed on the fly]
+		-h <str>	:Get this help message
+	"""
 }
 
-while getopts "h?vpP:n:q:s:w:m:f:" opt; do
+while getopts "hi:o:n:t:T:" opt; do
     case "$opt" in
-    f) cmdfile=$OPTARG
-        ;;
-    m)  cmdsperproc=$OPTARG
-        ;;
-    q)  qsub=$OPTARG
-        ;;
-    s) sleepqsub=$OPTARG
-        ;;
-    w) walltime=$OPTARG
-        ;;
-    n) nodes=$OPTARG
-        ;;
-    P) parallel=$OPTARG
-        ;;
-    p)  pretend=1
-        ;;
-    h|\?)
-        show_help
-        ;;
-    v)  verbose=1
-        ;;
+       h|':'|'?'|'*') usage; 1>&2; exit 1; ;;
+       i) inv=${OPTARG} ;;
+       o) out=${OPTARG} ;;
+       n) nc=${OPTARG} ;;
+       t) thr=${OPTARG} ;;
+       T) thresh=${OPTARG} ;;
     esac
-=======
-while getopt -l "invcf:,out:,nchr:,threads:,:help" -o "i:o:c:t:h" -- $@; do
-   usage() { printf "Usage: %s: [-i|--invcf] [-o|--out] [-c|--nchr] [-t|--threads]\n" $(basename $0) 1>&2; exit 1; }
-   case $@ in
-     i|invcf) vcfin=$OPTARG;;
-     o|out) oprfx=$OPTARG;;
-     c|nchr) nchr=$OPTARG;;
-     t|threads) thr=$OPTARG;;
-     h|help) usage;;
-     "") usage;;
-     #*) usage;;
-   esac
-   echo -e "Arguments\nINPUT: $vcfin\nOUTPUT: $oprfx\nNUMCHR: $nchr\nTHREADS: $thr\n"
-   sleep 1;
-   echo "Starting job..."
-   sleep 1;
-   echo "<<< Progress... >>>"
-   break
->>>>>>> 5304f9f092a2ad73b052878fdfee23f90c4960f4
 done
+
+sleep 1
+echo "Arguments received"
+echo -e "INPUT: $inv\nOUTPUT: $out\nNUMCHR: $nc\nTHREADS: $thr\nTHRESH: $thresh\n"
+sleep 1
+echo "Now preparing to run jobs..."
+sleep 1
+echo -e "Executing\e[32;5;5m...\e[0m"
+
 
