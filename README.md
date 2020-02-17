@@ -1,4 +1,4 @@
-Repo for my scripts
+Random scripts
 ---
 ![samtools filtering options](https://github.com/esohkevin/scripts/blob/master/samFilter.png)
 
