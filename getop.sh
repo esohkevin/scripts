@@ -27,14 +27,14 @@ fi
 
 while getopts "h-i:-o:-n:-t:-T:" opt; do
     case "$opt" in
-       i) inv=${OPTARG}; (( $OPTIND+1 )); ;;
-       o) out=${OPTARG}; (( $OPTIND+1 ));  ;;
-       n) nc=${OPTARG}; (( $OPTIND+1 ));  ;;
-       t) thr=${OPTARG}; (( $OPTIND+1 ));  ;;
-       T) thresh=${OPTARG}; (( $OPTIND+1 ));  ;;
-       h) usage; 1>&2; (( $OPTIND+1 )); exit 1;;
-       ?) usage; 1>&2; (( $OPTIND+1 )); exit 1 ;;
-       *) usage; 1>&2; (( $OPTIND+1 )); exit 1 ;;
+       i) inv=${OPTARG}; (( $OPTIND+1 )) ;;
+       o) out=${OPTARG}; (( $OPTIND+1 )) ;;
+       n) nc=${OPTARG}; (( $OPTIND+1 )) ;;
+       t) thr=${OPTARG}; (( $OPTIND+1 )) ;;
+       T) thresh=${OPTARG}; (( $OPTIND+1 )) ;;
+       h) usage; 1>&2; exit 1;;
+       ?) usage; 1>&2; exit 1 ;;
+       *) usage; 1>&2; exit 1 ;;
     esac
 done
 
