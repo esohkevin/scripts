@@ -15,16 +15,26 @@ function usage() {
 	"""
 }
 
+if [ $# -lt 1 ]; then
+   usage; 1>&2;
+   exit 1
+fi
+
+if [ $? != 0 ]; then
+   echo "ERROR: Exiting..." 1>&2; 
+   exit 1;
+fi
+
 while getopts "h-i:-o:-n:-t:-T:" opt; do
     case "$opt" in
-       i) inv=${OPTARG} ;;
-       o) out=${OPTARG}  ;;
-       n) nc=${OPTARG} ;;
-       t) thr=${OPTARG} ;;
-       T) thresh=${OPTARG} ;;
-       h) usage; 1>&2; exit 1;;
-       '?') usage; 1>&2; exit 1 ;;
-       '*') usage; 1>&2; exit 1 ;;
+       i) inv=${OPTARG}; (( $OPTIND+1 )); ;;
+       o) out=${OPTARG}; (( $OPTIND+1 ));  ;;
+       n) nc=${OPTARG}; (( $OPTIND+1 ));  ;;
+       t) thr=${OPTARG}; (( $OPTIND+1 ));  ;;
+       T) thresh=${OPTARG}; (( $OPTIND+1 ));  ;;
+       h) usage; 1>&2; (( $OPTIND+1 )); exit 1;;
+       ?) usage; 1>&2; (( $OPTIND+1 )); exit 1 ;;
+       *) usage; 1>&2; (( $OPTIND+1 )); exit 1 ;;
     esac
 done
 
@@ -45,6 +55,10 @@ done
 #}
 #
 #temp=`getopt -o "hi:o:n:t:T:v" -l "help,invcf:,out:,nchr:,threads:,thresh:,verbose" -- "$@"`
+#if [ $# -lt 1 ]; then
+#   usage; 1>&2;
+#   exit 1;
+#fi
 #
 #if [ $? != 0 ]; then 
 #   echo "Terminating..." 1>&2; 
@@ -71,8 +85,10 @@ done
 
 #-------------------------------------- PRINT ARGS -----------------------------------
 sleep 1
+echo "===================="
 echo "Arguments received"
-echo -e "INPUT: $inv\nOUTPUT: $out\nNUMCHR: $nc\nTHREADS: $thr\nTHRESH: $thresh\n"
+echo -e "INPUT: $inv\nOUTPUT: $out\nNUMCHR: $nc\nTHREADS: $thr\nTHRESH: $thresh"
+echo "===================="
 sleep 1
 echo "Now preparing to run jobs..."
 sleep 1
