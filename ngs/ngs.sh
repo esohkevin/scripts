@@ -109,24 +109,26 @@ if [[ $? != 0 ]]; then
     1>&2;
     exit 1;
 else
-echo -e """==================================================================
-NGS Pipeline		 kevin.esoh@students.jkuat.ac.ke (c) 2020
------------------------------------------------------------------
-Option;		argument
-fqpath:		$dname
-ref:		$ref
-leadx:		$leadx
-trailx:		$trailx
-threads:	$t
-outFile:	$out
-=================================================================="""
+    echo -e """
+               ===================================================================
+               NGS Pipeline		 kevin.esoh@students.jkuat.ac.ke (c) 2020
+               -------------------------------------------------------------------
+               Option;		argument
+               fqpath:		$dname
+               reference:	$ref
+               leading:		$leadx
+               trailing:	$trailx
+               threads:		$t
+               outFile:		$out
+               ===================================================================
+    """
     mkdir -p fastq paired unpaired aligned
     paste fwd.txt rev.txt | awk -v d="${dname}" '{print d$1,d$2,$1}' | sed 's/_1.fastq.gz//2' > forward_reverse.txt
     awk '{print $1,$2}' forward_reverse.txt > fastq.input.txt
     id=forward_reverse.txt
-#    awk '{print $1,$2,"paired/"$1,"unpaired/"$1,"paired/"$1,"unpaired/"$1}' $id | sed 's/1.fastq.gz/fp.fastq.gz/2' |  sed 's/1.fastq.gz/fu.fastq.gz/2' | sed 's/1.fastq.gz/rp.fastq.gz/2' |  sed 's/1.fastq.gz/ru.fastq.gz/2' > trim.input.txt
     awk '{print $1,$2,"paired/"$3"_fp.fastq.gz","unpaired/"$3"_fu.fastq.gz","paired/"$3"_rp.fastq.gz","unpaired/"$3"_ru.fastq.gz"}' $id > trim.input.txt
     awk '{print $3,$5,$3}' trim.input.txt | sed 's/_fp.fastq.gz/.sam/2' | sed 's/paired\///3' |  awk '{print $1,$2,"-o","aligned/"$3}' > align.input.txt
+    rm fwd.txt rev.txt
     while true; do
       case "$1" in
          fq)
@@ -135,6 +137,7 @@ outFile:	$out
                echo "FastQC"
                fastqc -t $t $line -o $odr
            done < $id
+           shift
            ;;
          trim)
            id=trim.input.txt
@@ -142,6 +145,7 @@ outFile:	$out
                echo "Trommomatic"
                trimmomatic PE -phred33 $line ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t
            done < $id
+           shift
            ;;
          map)
            if [[ "$ref" == NULL ]]; then
@@ -159,11 +163,13 @@ outFile:	$out
                samtools sort -O BAM --reference $ref -@ $t -o ${sam/.sam/.sorted.bam} ${sam/.sam/.bam}
                echo ${sam/.sam/.sorted.bam}
            done > bam.list
+           shift
            bcftools mpileup --min-MQ 2 --thread $t -f $ref -Oz -o out.vcf.gz -b bam.list
            bcftools index -f -t out.vcf.gz
            bcftools call -mv --threads $t -Oz -o ${out}.vcf.gz out.vcf.gz
            bcftools index -f -t ${out}.vcf.gz
            rm $id out.vcf.gz aligned/*.sam
+           ;;
       esac
       continue
     done
