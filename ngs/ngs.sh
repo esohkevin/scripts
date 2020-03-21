@@ -162,6 +162,7 @@ else
                samtools view -h ${sam} -O BAM -o ${sam/.sam/.bam}
                samtools sort -O BAM --reference $ref -@ $t -o ${sam/.sam/.sorted.bam} ${sam/.sam/.bam}
                echo ${sam/.sam/.sorted.bam}
+               rm ${sam/.sam/.bam}
            done > bam.list
            shift
            bcftools mpileup --min-MQ 2 --thread $t -f $ref -Oz -o out.vcf.gz -b bam.list
