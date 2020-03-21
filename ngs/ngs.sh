@@ -119,7 +119,7 @@ else
                leading:		$leadx
                trailing:	$trailx
                threads:		$t
-               outFile:		$out
+               outFile:		${out}.vcf.gz
                ===================================================================
     """
     mkdir -p fastq paired unpaired aligned
