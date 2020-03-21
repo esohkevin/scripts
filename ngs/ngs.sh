@@ -138,21 +138,21 @@ outFile:	$out
     else
        id=fastq.input.txt; odr="fastq/"
        while read -r line; do
-            echo "FastQC"
-#           fastqc -t $t $line -o $odr
+           echo "FastQC"
+           fastqc -t $t $line -o $odr
        done < $id
        
        id=trim.input.txt
        while read -r line; do
-            echo "Trommomatic"
-#           trimmomatic PE -phred33 $line ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t
+           echo "Trommomatic"
+           trimmomatic PE -phred33 $line ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t
        done < $id
        
        bwa index $ref
        id=align.input.txt
        while read -r line; do
-            echo "BWA"
-#           bwa mem -t $t $ref $line -o aligned/$(awk '{print $1}' trim.input.txt | sed 's/_1.fastq.gz/.sam/1')
+           echo "BWA"
+           bwa mem -t $t $ref $line -o aligned/$(awk '{print $1}' trim.input.txt | sed 's/_1.fastq.gz/.sam/1')
        done < $id
        for sam in aligned/$(awk '{print $1}' trim.input.txt | sed 's/_1.fastq.gz/.sam/1'); do
            samtools view -h ${sam} -O BAM -o ${sam/.sam/.bam}
