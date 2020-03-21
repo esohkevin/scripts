@@ -109,9 +109,9 @@ if [[ $? != 0 ]]; then
     1>&2;
     exit 1;
 else
-echo -e """========================================================
-$(basename $0)		 kevin.esoh@students.jkuat.ac.ke (c) 2020
-
+echo -e """==================================================================
+NGS Pipeline		 kevin.esoh@students.jkuat.ac.ke (c) 2020
+-----------------------------------------------------------------
 Option;		argument
 fqpath:		$dname
 ref:		$ref
@@ -119,7 +119,7 @@ leadx:		$leadx
 trailx:		$trailx
 threads:	$t
 outFile:	$out
-========================================================"""
+=================================================================="""
     mkdir -p fastq paired unpaired aligned
     paste fwd.txt rev.txt | awk -v d="${dname}" '{print d$1,d$2,$1}' | sed 's/_1.fastq.gz//2' > forward_reverse.txt
     awk '{print $1,$2}' forward_reverse.txt > fastq.input.txt
@@ -165,5 +165,6 @@ outFile:	$out
            bcftools index -f -t ${out}.vcf.gz
            rm $id out.vcf.gz aligned/*.sam
       esac
+      continue
     done
 fi
