@@ -7,6 +7,8 @@ function usage() {
 
 		Enter 'fq' OR 'trim' OR 'map' OR all to run either FastQC OR Trimmomatic OR alignment/mapping or all steps.
 		Enter any two to run only those two steps
+		Enter a 'p' infront of the command to run the command in parallel. e.g. 'pfq' will run FastQC in parallel
+		Make sure you have GNU parallel installed if you choose to run parallel jobs
 
 		General Options:
 		  -p,--fqpath    <str>    :Path to fastq files. NB: Make sure all the files are paired i.e. forward and reverse 
@@ -25,18 +27,21 @@ function usage() {
 	"""
 }
 
+#--- Check arguments
 if [ $# -lt 1 ]; then
     usage; 1>&2;
     exit 1;
 fi
-
+ 
 if [ $? != 0 ]; then
    echo "ERROR: Exiting..." 1>&2;
    exit 1;
 fi
 
+#--- Set args parser
 prog=`getopt -o "hp:o:l:t:r:T:" --long "help,fqpath:,out:,leadx:,trailx:,ref:,threads:" -- "$@"`
 
+#--- Set defaults
 ref=NULL
 dname="`pwd`/"
 leadx=0
@@ -46,6 +51,7 @@ out="ngs"
 
 eval set -- "$prog"
 
+#--- Parse args
 while true; do
     case "$1" in
       -p|--fqpath) dname="$2/";
@@ -97,6 +103,7 @@ while true; do
     continue
 done
 
+#--- Make input files from forward/reverse runs
 for i in $( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq) && (ls ${dname}*_R1*.fastq.gz || ls ${dname}*_R1*.fq.gz || ls ${dname}*_R1*.fastq || ls ${dname}*_R1*.fq) ); do
     if [[ -f "$i" ]]; then
         basename $i;
@@ -145,30 +152,45 @@ else
     awk -v d="${dname}" '{print d$1,d$2,"paired/"$1"_fp.fq.gz","unpaired/"$1"_fu.fq.gz","paired/"$2"_rp.fq.gz","unpaired/"$2"_ru.fq.gz"}' forward_reverse.txt > trim.input.txt
     awk '{print $3,$5,$3}' trim.input.txt | sed 's/_fp.fq.gz/.sam/2' | sed 's/paired\///3' |  awk '{print $1,$2,"-o","aligned/"$3}' > align.input.txt
     rm fwd.txt rev.txt
-    while true; do
-      case "$1" in
-         fq)
+
+    #--- Define functions
+    #--- FastQC
+    function fq() {
            id=fastq.input.txt; odr="fastq/"
            while read -r line; do
                echo "FastQC"
                fastqc -t $t $line -o $odr
            done < $id
-           shift
-           ;;
-         trim)
+    }
+
+    function pfq() {
+           id=fastq.input.txt; odr="fastq/"
+         echo "Your jobs will be run in parallel"
+            cat $id | parallel --col-sep ' ' echo "-t $thr $dname{1} $dname{2} -o $odr" | xargs -P5 -n6 fastqc
+    }
+
+    #--- Trimmomatic
+    function trim() {
            id=trim.input.txt
            while read -r line; do
                echo "Trommomatic"
                trimmomatic PE -phred33 $line ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t
            done < $id
-           shift
-           ;;
-         map)
+    }
+
+    function ptrim() {
+           id=trim.input.txt
+           echo "Your jobs will be run in parallel"
+              cat $id | parallel --col-sep ' ' echo PE -phred33 {} ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t | xargs -P5 -n15 trimmomatic
+    }
+
+    #--- Mapping/Alignment (BWA)
+    function map() {
            if [[ "$ref" == NULL ]]; then
               echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
               exit 1
-	   elif [[ ! -f "${ref}.bwt" ]]; then
-		bwa index $ref
+           elif [[ ! -f "${ref}.bwt" ]]; then
+                bwa index $ref
            fi
            id=align.input.txt
            while read -r line; do
@@ -186,8 +208,16 @@ else
            bcftools call -mv --threads $t -Oz -o ${out}.vcf.gz out.vcf.gz
            bcftools index -f -t ${out}.vcf.gz
            rm $id out.vcf.gz aligned/*.sam
-	   shift
-           ;;
+    }
+
+    #--- Run commands (NGS Pipeline)
+    while true; do
+      case "$1" in
+         fq) fq; shift ;;
+	 pfq) pfq; shift ;;
+         trim) trim; shift ;;
+	 ptrim) ptrim; shift ;;
+         map) map; shift ;;
 	 *) shift; 1>&2; exit 1 ;;
       esac
       continue
