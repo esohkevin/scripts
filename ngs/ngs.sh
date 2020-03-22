@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage() {
-	printf "Usage: %s [ fq|pfq|trim|ptrim|map ] [ options ]\n" $(basename $0);
+	printf "Usage: %s [ fq|pfq|trim|ptrim|map|pmap ] [ options ]\n" $(basename $0);
 	echo -e """
 		NGS Pipeline - Paired End
 
@@ -110,7 +110,7 @@ for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq*; do
     fi
 done > fwd.txt
 if [[ ! -s "fwd.txt" ]]; then
-   echo -e "\nERROR: No fastq file found in the specified location [ $dname ] Terminating...\n"
+   echo -e "\nERROR: No fastq file found in the specified location: '$dname'\n"
    1>&2;
    exit 1
 fi
@@ -162,8 +162,9 @@ else
 
     function pfq() {
            id=fastq.input.txt; odr="fastq/"
-         echo "Your jobs will be run in parallel"
-            cat $id | parallel --col-sep ' ' echo "-t $thr $dname{1} $dname{2} -o $odr" | xargs -P5 -n6 fastqc
+           n=$((50/$t))
+           echo "Your jobs will be run in $n parallel runs"
+           cat $id | parallel --col-sep ' ' echo "-t $t {1} {2} -o $odr" | xargs -P$n -n6 fastqc
     }
 
     #--- Trimmomatic
@@ -177,8 +178,9 @@ else
 
     function ptrim() {
            id=trim.input.txt
-           echo "Your jobs will be run in parallel"
-              cat $id | parallel --col-sep ' ' echo PE -phred33 {} ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t | xargs -P5 -n15 trimmomatic
+           n=$((50/$t))
+           echo "Your jobs will be run in $n parallel runs"
+              cat $id | parallel --col-sep ' ' echo PE -phred33 {} ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t | xargs -P$n -n15 trimmomatic
     }
 
     #--- Mapping/Alignment (BWA)
@@ -204,7 +206,31 @@ else
            bcftools index -f -t out.vcf.gz
            bcftools call -mv --threads $t -Oz -o ${out}.vcf.gz out.vcf.gz
            bcftools index -f -t ${out}.vcf.gz
-           rm $id out.vcf.gz aligned/*.sam
+           rm out.vcf.gz aligned/*.sam
+    }
+
+    function pmap() {
+           if [[ "$ref" == NULL ]]; then
+              echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
+              exit 1
+           elif [[ ! -f "${ref}.bwt" ]]; then
+                bwa index $ref
+           fi
+           id=align.input.txt
+           echo "BWA"
+           n=$((50/$t))
+           cat $id | parallel --col-sep ' ' echo "mem -t $t $ref {}" | xargs -P$n -n8 bwa
+           for sam in $(awk '{print $4}' align.input.txt); do
+               samtools view -h ${sam} -O BAM -o ${sam/.sam/.bam}
+               samtools sort -O BAM --reference $ref -@ $t -o ${sam/.sam/.sorted.bam} ${sam/.sam/.bam}
+               echo ${sam/.sam/.sorted.bam}
+               rm ${sam/.sam/.bam}
+           done > bam.list
+           bcftools mpileup --min-MQ 2 --thread $t -f $ref -Oz -o out.vcf.gz -b bam.list
+           bcftools index -f -t out.vcf.gz
+           bcftools call -mv --threads $t -Oz -o ${out}.vcf.gz out.vcf.gz
+           bcftools index -f -t ${out}.vcf.gz
+           rm out.vcf.gz aligned/*.sam
     }
 
     #--- Run commands (NGS Pipeline)
@@ -215,6 +241,7 @@ else
          trim) trim; shift ;;
 	 ptrim) ptrim; shift ;;
          map) map; shift ;;
+         pmap) pmap; shift ;;
 	 *) shift; 1>&2; exit 1 ;;
       esac
       continue
