@@ -151,7 +151,7 @@ else
            if [[ "$ref" == NULL ]]; then
               echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
               exit 1
-	   elif [[ ! -f "${ref}.bwt" ]]
+	   elif [[ ! -f "${ref}.bwt" ]]; then
 		bwa index $ref
            fi
            id=align.input.txt
