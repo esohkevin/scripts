@@ -108,7 +108,7 @@ while true; do
 done
 
 #--- Make input files from forward/reverse runs
-for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq*; do 
+for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq* ${dname}*_1.fq* ${dname}*_R1*.fq*; do 
     if [[ -e $i ]]; then
        basename $i;
     fi
@@ -120,7 +120,7 @@ if [[ ! -s "fwd.txt" ]]; then
    exit 1;
 fi
 
-for i in ${dname}*_2.fastq* ${dname}*_R2*.fastq*; do
+for i in ${dname}*_2.fastq* ${dname}*_R2*.fastq* ${dname}*_2.fq* ${dname}*_R2*.fq*; do
     if [[ -e $i ]]; then
        basename $i;
     fi
