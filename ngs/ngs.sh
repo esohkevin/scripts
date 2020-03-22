@@ -101,7 +101,7 @@ for i in $( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.f
     if [[ -f "$i" ]]; then
         basename $i;
     else
-	echo "No file exists with the extension $i"
+	echo "ERROR: No fastq file file in the specified location Terminating..."
 	1>&2;
 	exit 1
     fi
@@ -111,7 +111,7 @@ for i in $( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.f
     if [[ -f "$i" ]]; then
        basename $i;
     else
-        echo "No file exists with the extension $i"
+        echo "ERROR: No fastq file found in the specified location Terminating..."
         1>&2;
         exit 1
     fi
