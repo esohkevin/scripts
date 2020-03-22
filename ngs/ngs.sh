@@ -110,7 +110,7 @@ for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq*; do
     fi
 done > fwd.txt
 if [[ ! -s "fwd.txt" ]]; then
-   echo "ERROR: No fastq file file in the specified location Terminating..."
+   echo -e "\nERROR: No fastq file found in the specified location [ $dname ] Terminating...\n"
    1>&2;
    exit 1
 fi
@@ -120,11 +120,6 @@ for i in ${dname}*_2.fastq* ${dname}*_R2*.fastq*; do
        basename $i;
     fi
 done > rev.txt
-#if [[ -z "rev.txt" ]]; then
-#   echo "ERROR: No fastq file file in the specified location Terminating..."
-#   1>&2;
-#   exit 1
-#fi
 
 if [[ $? != 0 ]]; then
     echo "ERROR: No fastq file in the specified location Terminating..."
