@@ -97,32 +97,25 @@ while true; do
     continue
 done
 
-for i in (${dname}*_1.fastq.gz || ${dname}*_1.fq.gz || ${dname}*_1.fastq || ${dname}*_1.fq || ${dname}*_R1*.fastq.gz || ${dname}*_R1*.fq.gz || ${dname}*_R1*.fastq || ${dname}*_R1*.fq); do
+for i in $( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq) && (ls ${dname}*_R1*.fastq.gz || ls ${dname}*_R1*.fq.gz || ls ${dname}*_R1*.fastq || ls ${dname}*_R1*.fq) ); do
     if [[ -f "$i" ]]; then
-       for j in $(ls $i); do
-	   basename $j;
-       done > fwd.txt
+        basename $i;
     else
 	echo "No file exists with the extension $i"
 	1>&2;
 	exit 1
     fi
-done
+done > fwd.txt
 
-for i in (${dname}*_2.fastq.gz || ${dname}*_2.fq.gz || ${dname}*_2.fastq || ${dname}*_2.fq || ${dname}*_R2*.fastq.gz || ${dname}*_R2*.fq.gz || ${dname}*_R2*.fastq || ${dname}*_R2*.fq); do
+for i in $( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.fastq || ls ${dname}*_2.fq) && (ls ${dname}*_R2*.fastq.gz || ls ${dname}*_R2*.fq.gz || ls ${dname}*_R2*.fastq || ls ${dname}*_R2*.fq) ); do
     if [[ -f "$i" ]]; then
-       for j in $(ls $i); do
-           basename $j;
-       done > rev.txt
+       basename $i;
     else
         echo "No file exists with the extension $i"
         1>&2;
         exit 1
     fi
-done
-
-#for i in $( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq) && (ls ${dname}*_R1*.fastq.gz || ls ${dname}*_R1*.fq.gz || ls ${dname}*_R1*.fastq || ls ${dname}*_R1*.fq) ); do basename $i; done > fwd.txt
-#for i in $( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.fastq || ls ${dname}*_2.fq) && (ls ${dname}*_R2*.fastq.gz || ls ${dname}*_R2*.fq.gz || ls ${dname}*_R2*.fastq || ls ${dname}*_R2*.fq) ); do basename $i; done > rev.txt
+done > rev.txt
 
 if [[ $? != 0 ]]; then
     echo "ERROR: No fastq file in the specified location Terminating..."
@@ -142,13 +135,15 @@ else
                threads:		$t
                outFile:		${out}.vcf.gz
                ===================================================================
+               Starting NGS Pipeline. Please wait...
     """
     mkdir -p fastq paired unpaired aligned
-    paste fwd.txt rev.txt | awk -v d="${dname}" '{print d$1,d$2,$1}' | sed 's/_1.fastq.gz//2' > forward_reverse.txt
-    awk '{print $1,$2}' forward_reverse.txt > fastq.input.txt
-    id=forward_reverse.txt
-    awk '{print $1,$2,"paired/"$3"_fp.fastq.gz","unpaired/"$3"_fu.fastq.gz","paired/"$3"_rp.fastq.gz","unpaired/"$3"_ru.fastq.gz"}' $id > trim.input.txt
-    awk '{print $3,$5,$3}' trim.input.txt | sed 's/_fp.fastq.gz/.sam/2' | sed 's/paired\///3' |  awk '{print $1,$2,"-o","aligned/"$3}' > align.input.txt
+    paste fwd.txt rev.txt | awk '{print $1,$2}' > forward_reverse.txt
+    for i in $(cat fwd.txt); do if [[ ! -f "paired/${i}_fp.fq.gz" ]]; then cp ${dname}${i} paired/${i}_fp.fq.gz; fi; done
+    for i in $(cat rev.txt); do if [[ ! -f "paired/${i}_rp.fq.gz" ]]; then cp ${dname}${i} paired/${i}_rp.fq.gz; fi; done
+    awk -v d="${dname}" '{print d$1,d$2}' forward_reverse.txt > fastq.input.txt
+    awk -v d="${dname}" '{print d$1,d$2,"paired/"$1"_fp.fq.gz","unpaired/"$1"_fu.fq.gz","paired/"$2"_rp.fq.gz","unpaired/"$2"_ru.fq.gz"}' forward_reverse.txt > trim.input.txt
+    awk '{print $3,$5,$3}' trim.input.txt | sed 's/_fp.fq.gz/.sam/2' | sed 's/paired\///3' |  awk '{print $1,$2,"-o","aligned/"$3}' > align.input.txt
     rm fwd.txt rev.txt
     while true; do
       case "$1" in
