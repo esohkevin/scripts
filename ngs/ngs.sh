@@ -164,12 +164,12 @@ else
                echo ${sam/.sam/.sorted.bam}
                rm ${sam/.sam/.bam}
            done > bam.list
-           shift
            bcftools mpileup --min-MQ 2 --thread $t -f $ref -Oz -o out.vcf.gz -b bam.list
            bcftools index -f -t out.vcf.gz
            bcftools call -mv --threads $t -Oz -o ${out}.vcf.gz out.vcf.gz
            bcftools index -f -t ${out}.vcf.gz
            rm $id out.vcf.gz aligned/*.sam
+	   shift
            ;;
       esac
       continue
