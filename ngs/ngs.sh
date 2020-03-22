@@ -100,9 +100,33 @@ done
 #   echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
 #   exit 1
 #fi
+for i in ${dname}*_1.fastq.gz ${dname}*_1.fq.gz ${dname}*_1.fastq ${dname}*_1.fq ${dname}*_R1*.fastq.gz ${dname}*_R1*.fq.gz ${dname}*_R1*.fastq ${dname}*_R1*.fq; do
+    if [[ -f "$i" ]]; then
+       for j in $(ls $i); do
+	   basename $j;
+       done > fwd.txt
+    else
+	echo "No file exists with the extension $i"
+	1>&2;
+	exit 1
+    fi
+done
 
-for i in $( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq) && (ls ${dname}*_R1*.fastq.gz || ls ${dname}*_R1*.fq.gz || ls ${dname}*_R1*.fastq || ls ${dname}*_R1*.fq) ); do basename $i; done > fwd.txt
-for i in $( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.fastq || ls ${dname}*_2.fq) && (ls ${dname}*_R2*.fastq.gz || ls ${dname}*_R2*.fq.gz || ls ${dname}*_R2*.fastq || ls ${dname}*_R2*.fq) ); do basename $i; done > rev.txt
+for i in ${dname}*_2.fastq.gz ${dname}*_2.fq.gz ${dname}*_2.fastq ${dname}*_2.fq ${dname}*_R2*.fastq.gz ${dname}*_R2*.fq.gz ${dname}*_R2*.fastq ${dname}*_R2*.fq; do
+    if [[ -f "$i" ]]; then
+       for j in $(ls $i); do
+           basename $j;
+       done > rev.txt
+    else
+        echo "No file exists with the extension $i"
+        1>&2;
+        exit 1
+    fi
+done
+
+#for i in $( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq) && (ls ${dname}*_R1*.fastq.gz || ls ${dname}*_R1*.fq.gz || ls ${dname}*_R1*.fastq || ls ${dname}*_R1*.fq) ); do basename $i; done > fwd.txt
+#for i in $( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.fastq || ls ${dname}*_2.fq) && (ls ${dname}*_R2*.fastq.gz || ls ${dname}*_R2*.fq.gz || ls ${dname}*_R2*.fastq || ls ${dname}*_R2*.fq) ); do basename $i; done > rev.txt
+
 if [[ $? != 0 ]]; then
     echo "ERROR: No fastq file in the specified location Terminating..."
     sleep 1;
