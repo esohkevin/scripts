@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage() {
-	printf "Usage: %s [ fq|pfq|trim|ptrim|map|pmap ] [ options ]\n" $(basename $0);
+	printf "Usage: %s [ fq|pfq|trim|ptrim|map|pmap|vcall ] [ options ]\n" $(basename $0);
 	echo -e """
 		NGS Pipeline - Paired End
 
@@ -9,6 +9,10 @@ function usage() {
 		Enter any two to run only those two steps
 		Enter a 'p' infront of the command to run the command in parallel. e.g. 'pfq' will run FastQC in parallel
 		Make sure you have GNU parallel installed if you choose to run parallel jobs
+
+		If you chose to run only variant calling (vcall) make sure to create a file called 'bam.list' with the the bam
+		file names, one per line. NB: The bam file names must be preceded by the path if the bam files are not in the
+	        current directory
 
 		General Options:
 		  -p,--fqpath    <str>    :Path to fastq files. NB: Make sure all the files are paired i.e. forward and reverse 
@@ -227,11 +231,21 @@ else
                echo ${sam/.sam/.sorted.bam}
                rm ${sam/.sam/.bam}
            done > bam.list
+           rm out.vcf.gz aligned/*.sam
+    }
+
+    #--- Variant Calling
+    function vcall() {
+           if [[ "$ref" == NULL ]]; then
+              echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
+              exit 1
+           elif [[ ! -f "${ref}.bwt" ]]; then
+                bwa index $ref
+           fi
            bcftools mpileup --min-MQ 2 --thread $t -f $ref -Oz -o out.vcf.gz -b bam.list
            bcftools index -f -t out.vcf.gz
            bcftools call -mv --threads $t -Oz -o ${out}.vcf.gz out.vcf.gz
            bcftools index -f -t ${out}.vcf.gz
-           rm out.vcf.gz aligned/*.sam
     }
 
     #--- Run commands (NGS Pipeline)
@@ -243,6 +257,7 @@ else
 	 ptrim) ptrim; shift ;;
          map) map; shift ;;
          pmap) pmap; shift ;;
+	 vcall) vcall; shift ;;
 	 *) shift; 1>&2; exit 1 ;;
       esac
       continue
