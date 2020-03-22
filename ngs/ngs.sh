@@ -104,21 +104,18 @@ while true; do
 done
 
 #--- Make input files from forward/reverse runs
-if [[ -e "$( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq) && (ls ${dname}*_R1*.fastq.gz || ls ${dname}*_R1*.fq.gz || ls ${dname}*_R1*.fastq || ls ${dname}*_R1*.fq) )" ]]; then
-for i in $( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq) && (ls ${dname}*_R1*.fastq.gz || ls ${dname}*_R1*.fq.gz || ls ${dname}*_R1*.fastq || ls ${dname}*_R1*.fq) ); do
-    if [[ -f "$i" ]]; then
-        basename $i;
+for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq*; do 
+    if [[ -e $i ]]; then
+       basename $i;
     else
 	echo "ERROR: No fastq file file in the specified location Terminating..."
 	1>&2;
 	exit 1
     fi
 done > fwd.txt
-fi
 
-if [[ -e "$( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.fastq || ls ${dname}*_2.fq) && (ls ${dname}*_R2*.fastq.gz || ls ${dname}*_R2*.fq.gz || ls ${dname}*_R2*.fastq || ls ${dname}*_R2*.fq) )" ]]; then
-for i in $( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.fastq || ls ${dname}*_2.fq) && (ls ${dname}*_R2*.fastq.gz || ls ${dname}*_R2*.fq.gz || ls ${dname}*_R2*.fastq || ls ${dname}*_R2*.fq) ); do
-    if [[ -f "$i" ]]; then
+for i in ${dname}*_2.fastq* ${dname}*_R2*.fastq*; do
+    if [[ -e $i ]]; then
        basename $i;
     else
         echo "ERROR: No fastq file found in the specified location Terminating..."
@@ -126,7 +123,6 @@ for i in $( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.f
         exit 1
     fi
 done > rev.txt
-fi
 
 if [[ $? != 0 ]]; then
     echo "ERROR: No fastq file in the specified location Terminating..."
