@@ -101,8 +101,8 @@ done
 #   exit 1
 #fi
 
-for i in $(ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq); do basename $i; done > fwd.txt
-for i in $(ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.fastq || ls ${dname}*_2.fq); do basename $i; done > rev.txt
+for i in $( (ls ${dname}*_1.fastq.gz || ls ${dname}*_1.fq.gz || ls ${dname}*_1.fastq || ls ${dname}*_1.fq) && (ls ${dname}*_R1*.fastq.gz || ls ${dname}*_R1*.fq.gz || ls ${dname}*_R1*.fastq || ls ${dname}*_R1*.fq) ); do basename $i; done > fwd.txt
+for i in $( (ls ${dname}*_2.fastq.gz || ls ${dname}*_2.fq.gz || ls ${dname}*_2.fastq || ls ${dname}*_2.fq) && (ls ${dname}*_R2*.fastq.gz || ls ${dname}*_R2*.fq.gz || ls ${dname}*_R2*.fastq || ls ${dname}*_R2*.fq) ); do basename $i; done > rev.txt
 if [[ $? != 0 ]]; then
     echo "ERROR: No fastq file in the specified location Terminating..."
     sleep 1;
