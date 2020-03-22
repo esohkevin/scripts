@@ -171,6 +171,7 @@ else
            rm $id out.vcf.gz aligned/*.sam
 	   shift
            ;;
+	 *) shift; 1>&2; exit 1 ;;
       esac
       continue
     done
