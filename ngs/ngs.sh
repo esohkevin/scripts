@@ -96,11 +96,8 @@ while true; do
     esac
     continue
 done
-#if [[ "$ref" == NULL ]]; then
-#   echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
-#   exit 1
-#fi
-for i in ${dname}*_1.fastq.gz ${dname}*_1.fq.gz ${dname}*_1.fastq ${dname}*_1.fq ${dname}*_R1*.fastq.gz ${dname}*_R1*.fq.gz ${dname}*_R1*.fastq ${dname}*_R1*.fq; do
+
+for i in (${dname}*_1.fastq.gz || ${dname}*_1.fq.gz || ${dname}*_1.fastq || ${dname}*_1.fq || ${dname}*_R1*.fastq.gz || ${dname}*_R1*.fq.gz || ${dname}*_R1*.fastq || ${dname}*_R1*.fq); do
     if [[ -f "$i" ]]; then
        for j in $(ls $i); do
 	   basename $j;
@@ -112,7 +109,7 @@ for i in ${dname}*_1.fastq.gz ${dname}*_1.fq.gz ${dname}*_1.fastq ${dname}*_1.fq
     fi
 done
 
-for i in ${dname}*_2.fastq.gz ${dname}*_2.fq.gz ${dname}*_2.fastq ${dname}*_2.fq ${dname}*_R2*.fastq.gz ${dname}*_R2*.fq.gz ${dname}*_R2*.fastq ${dname}*_R2*.fq; do
+for i in (${dname}*_2.fastq.gz || ${dname}*_2.fq.gz || ${dname}*_2.fastq || ${dname}*_2.fq || ${dname}*_R2*.fastq.gz || ${dname}*_R2*.fq.gz || ${dname}*_R2*.fastq || ${dname}*_R2*.fq); do
     if [[ -f "$i" ]]; then
        for j in $(ls $i); do
            basename $j;
