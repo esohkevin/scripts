@@ -168,6 +168,7 @@ else
     function pfq() {
            id=fastq.input.txt; odr="fastq/"
            n=$((50/$t))
+           echo "FastQC"
            echo "Your jobs will be run in $n parallel runs"
            cat $id | parallel --col-sep ' ' echo "-t $t {1} {2} -o $odr" | xargs -P$n -n6 fastqc
     }
@@ -184,6 +185,7 @@ else
     function ptrim() {
            id=trim.input.txt
            n=$((50/$t))
+           echo "Trimmomatic"
            echo "Your jobs will be run in $n parallel runs"
               cat $id | parallel --col-sep ' ' echo PE -phred33 {} ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:$leadx TRAILING:$trailx SLIDINGWINDOW:4:15 MINLEN:36 -threads $t | xargs -P$n -n15 trimmomatic
     }
@@ -222,30 +224,44 @@ else
                 bwa index $ref
            fi
            id=align.input.txt
+           awk '{print $4,"-O BAM -o",$4}' align.input.txt | sed 's/.sam/.bam/2' > sam2bam.input.txt
+           awk '{print $5,$5}' sam2bam.input.txt | sed 's/.bam/.sorted.bam/2' > sortbam.input.txt
            echo "BWA"
            n=$((50/$t))
-           cat $id | parallel --col-sep ' ' echo "mem -t $t $ref {}" | xargs -P$n -n8 bwa
-           for sam in $(awk '{print $4}' align.input.txt); do
-               samtools view -h ${sam} -O BAM -o ${sam/.sam/.bam}
-               samtools sort -O BAM --reference $ref -@ $t -o ${sam/.sam/.sorted.bam} ${sam/.sam/.bam}
-               echo ${sam/.sam/.sorted.bam}
-               rm ${sam/.sam/.bam}
-           done > bam.list
-           rm out.vcf.gz aligned/*.sam
+           echo "BWA"
+           cat align.input.txt | parallel --col-sep ' ' echo "mem -t $t $ref {}" | xargs -P$n -n8 bwa
+           cat sam2bam.input.txt | parallel --col-sep ' ' echo "view -h {}" | xargs -P$n -n7 samtools
+           cat sortbam.input.txt | parallel --col-sep ' ' echo "sort -O BAM --reference $ref -@ $t -o {}" | xargs -P$n -n10 samtools
+           for sam in $(awk '{print $4}' align.input.txt); do rm ${sam}; done
+           for bam in $(awk '{print $1}' sortbam.input.txt); do rm ${bam}; done
+           for i in out.vcf.gz aligned/*.sam; do if [[ -e "${i}" ]]; then rm $i; fi; done
     }
 
     #--- Variant Calling
     function vcall() {
+           if [[ ! -e "bam.list" ]] || ([[ -e "bam.list" ]] && [[ ! -s "bam.list" ]]); then
+              echo "ERROR with 'bam.list'! Please check that it exists and contains the bam file names, one per line, including the path..."; 
+              1>&2;
+              exit 1;
+           elif [[ -e "bam.list" ]]; then
+              for i in $(cat bam.list); do
+                 if [[ ! -e $i ]]; then
+                    echo "The file $i in your bam.list could not be found. Please check and correct..."
+                    1>&2;
+                    exit 1;
+                 fi
+              done
+           fi
            if [[ "$ref" == NULL ]]; then
               echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
-              exit 1
-           elif [[ ! -f "${ref}.bwt" ]]; then
-                bwa index $ref
+              exit 1;
            fi
+           echo "Variant Calling"
            bcftools mpileup --min-MQ 2 --thread $t -f $ref -Oz -o out.vcf.gz -b bam.list
            bcftools index -f -t out.vcf.gz
            bcftools call -mv --threads $t -Oz -o ${out}.vcf.gz out.vcf.gz
            bcftools index -f -t ${out}.vcf.gz
+           for i in out.vcf.gz aligned/*.sam; do if [[ -e "${i}" ]]; then rm $i; fi; done
     }
 
     #--- Run commands (NGS Pipeline)
