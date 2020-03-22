@@ -3,13 +3,13 @@
 function usage() {
 	printf "Usage: %s [ fq|trim|map ] [ options ]\n" $(basename $0);
 	echo -e """
-		NGS Pipeline
+		NGS Pipeline - Paired End
 
 		Enter 'fq' OR 'trim' OR 'map' OR all to run either FastQC OR Trimmomatic OR alignment/mapping or all steps.
 		Enter any two to run only those two steps
 
 		General Options:
-		  -p,--fqpath    <str>    :Path to fastq files. 
+		  -p,--fqpath    <str>    :Path to fastq files. NB: Make sure all the files are paired i.e. forward and reverse 
 					  :NB: Enter '.' for current directory 
 		  			  :[default: `pwd`/]
                   -o,--out       <str>    :Output VCF file prefix [default: ngs ]
