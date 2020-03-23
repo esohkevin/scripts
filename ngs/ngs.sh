@@ -225,7 +225,7 @@ else
            fi
            id=align.input.txt
            awk '{print $4,"-O BAM -o",$4}' align.input.txt | sed 's/.sam/.bam/2' > sam2bam.input.txt
-           awk '{print $5,$5}' sam2bam.input.txt | sed 's/.bam/.sorted.bam/2' > sortbam.input.txt
+           awk '{print $5,$5}' sam2bam.input.txt | sed 's/.bam/.sorted.bam/1' > sortbam.input.txt
            echo "BWA"
            n=$((50/$t))
            echo "BWA"
