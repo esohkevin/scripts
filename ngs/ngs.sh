@@ -14,6 +14,9 @@ function usage() {
 		file names, one per line. NB: The bam file names must be preceded by the path if the bam files are not in the
 	        current directory
 
+		To run all steps in serial, simply enter 'all'
+		To run all steps in parallel, simply enter 'pall'
+
 		General Options:
 		  -p,--fqpath    <str>    :Path to fastq files. NB: Make sure all the files are paired i.e. forward and reverse 
 					  :NB: Enter '.' for current directory 
@@ -266,7 +269,7 @@ else
 
     #--- Run commands (NGS Pipeline)
     while true; do
-      case "$1" in
+      case "$(echo $1 | tr [:upper:] [:lower:])" in
          fq) fq; shift ;;
 	 pfq) pfq; shift ;;
          trim) trim; shift ;;
@@ -274,6 +277,8 @@ else
          map) map; shift ;;
          pmap) pmap; shift ;;
 	 vcall) vcall; shift ;;
+         all) fq && trim && map && vcall ;;
+         pall) pfq && ptrim && pmap && vcall ;;
 	 *) shift; 1>&2; exit 1 ;;
       esac
       continue
