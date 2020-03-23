@@ -117,7 +117,7 @@ for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq* ${dname}*_1.fq* ${dname}*_R1*.f
     fi
 done > fwd.txt
 if [[ ! -s "fwd.txt" ]]; then
-   echo -e "\nERROR: No fastq file found in the specified location: '$dname'\n"
+   echo -e "\nERROR: No fastq file found in the specified location: '$dname'\nPlease specify path to Fastq fles using -p or --fqpath\n"
    rm fwd.txt;
    1>&2;
    exit 1;
