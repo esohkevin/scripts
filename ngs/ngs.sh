@@ -111,7 +111,7 @@ while true; do
 done
 
 #--- Make input files from forward/reverse runs
-for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq* ${dname}*_1.fq* ${dname}*_R1*.fq*; do 
+for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq* ${dname}*_1.fq* ${dname}*_R1*.fq* ${dname}*.1.fq* ${dname}*.R1.fq*; do 
     if [[ -e $i ]]; then
        basename $i;
     fi
@@ -123,7 +123,7 @@ if [[ ! -s "fwd.txt" ]]; then
    exit 1;
 fi
 
-for i in ${dname}*_2.fastq* ${dname}*_R2*.fastq* ${dname}*_2.fq* ${dname}*_R2*.fq*; do
+for i in ${dname}*_2.fastq* ${dname}*_R2*.fastq* ${dname}*_2.fq* ${dname}*_R2*.fq* ${dname}*.2.fq* ${dname}*.R2.fq*; do
     if [[ -e $i ]]; then
        basename $i;
     fi
@@ -149,7 +149,6 @@ else
                ===================================================================
                Starting NGS Pipeline. Please wait...
     """
-    mkdir -p fastq paired unpaired aligned
     paste fwd.txt rev.txt | awk '{print $1,$2}' > forward_reverse.txt
     for i in $(cat fwd.txt); do if [[ ! -f "paired/${i}_fp.fq.gz" ]]; then cp ${dname}${i} paired/${i}_fp.fq.gz; fi; done
     for i in $(cat rev.txt); do if [[ ! -f "paired/${i}_rp.fq.gz" ]]; then cp ${dname}${i} paired/${i}_rp.fq.gz; fi; done
@@ -161,6 +160,7 @@ else
     #--- Define functions
     #--- FastQC
     function fq() {
+	   mkdir -p fastq
            id=fastq.input.txt; odr="fastq/"
            while read -r line; do
                echo "FastQC"
@@ -169,6 +169,7 @@ else
     }
 
     function pfq() {
+	   mkdir -p fastq
            id=fastq.input.txt; odr="fastq/"
            n=$((50/$t))
            echo "FastQC"
@@ -178,6 +179,7 @@ else
 
     #--- Trimmomatic
     function trim() {
+	   mkdir -p paired unpaired
            id=trim.input.txt
            while read -r line; do
                echo "Trommomatic"
@@ -186,6 +188,7 @@ else
     }
 
     function ptrim() {
+	   mkdir -p paired unpaired
            id=trim.input.txt
            n=$((50/$t))
            echo "Trimmomatic"
@@ -195,6 +198,7 @@ else
 
     #--- Mapping/Alignment (BWA)
     function map() {
+	   mkdir -p aligned
            if [[ "$ref" == NULL ]]; then
               echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
               exit 1
@@ -220,6 +224,7 @@ else
     }
 
     function pmap() {
+	   mkdir -p aligned
            if [[ "$ref" == NULL ]]; then
               echo "ERROR: -r,--ref not provided! Exiting..."; 1>&2;
               exit 1
@@ -242,6 +247,7 @@ else
 
     #--- Variant Calling
     function vcall() {
+	   mkdir -p vcall
            if [[ ! -e "bam.list" ]] || ([[ -e "bam.list" ]] && [[ ! -s "bam.list" ]]); then
               echo "ERROR with 'bam.list'! Please check that it exists and contains the bam file names, one per line, including the path..."; 
               1>&2;
