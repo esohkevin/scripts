@@ -149,6 +149,7 @@ else
                ===================================================================
                Starting NGS Pipeline. Please wait...
     """
+    mkdir -p paired
     paste fwd.txt rev.txt | awk '{print $1,$2}' > forward_reverse.txt
     for i in $(cat fwd.txt); do if [[ ! -f "paired/${i}_fp.fq.gz" ]]; then cp ${dname}${i} paired/${i}_fp.fq.gz; fi; done
     for i in $(cat rev.txt); do if [[ ! -f "paired/${i}_rp.fq.gz" ]]; then cp ${dname}${i} paired/${i}_rp.fq.gz; fi; done
