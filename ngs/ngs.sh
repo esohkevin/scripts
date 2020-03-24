@@ -242,7 +242,7 @@ else
            cat sam2bam.input.txt | parallel --col-sep ' ' echo "view -h {}" | xargs -P$n -n7 samtools
            cat sortbam.input.txt | parallel --col-sep ' ' echo "sort -O BAM --reference $ref -@ $t -o {}" | xargs -P$n -n10 samtools
            for sam in $(awk '{print $4}' align.input.txt); do rm ${sam}; done
-           for bam in $(awk '{print $1}' sortbam.input.txt); do rm ${bam}; done
+           for bam in $(awk '{print $2}' sortbam.input.txt); do rm ${bam}; done
            for i in out.vcf.gz aligned/*.sam; do if [[ -e "${i}" ]]; then rm $i; fi; done
     }
 
