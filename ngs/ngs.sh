@@ -286,7 +286,7 @@ else
 	 vcall) vcall; shift ;;
          all) fq && trim && map && vcall; shift ;;
          pall) pfq && ptrim && pmap && vcall; shift ;;
-	 *) shift; 1>&2; exit 1 ;;
+	 *) usage; shift; 1>&2; exit 1 ;;
       esac
       continue
     done
