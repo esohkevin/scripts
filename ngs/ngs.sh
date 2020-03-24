@@ -286,7 +286,7 @@ else
 	 vcall) vcall; shift ;;
          all) fq && trim && map && vcall; shift ;;
          pall) pfq && ptrim && pmap && vcall; shift ;;
-	 *) usage; shift; 1>&2; exit 1 ;;
+	 *) echo -e "\nNo command passed! Please enter at least one coomand: [ fq|pfq|trim|ptrim|map|pmap|vcall ]\nOr type [-h|--help] for usage\n"; shift; 1>&2; exit 1 ;;
       esac
       continue
     done
