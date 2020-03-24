@@ -104,7 +104,7 @@ while true; do
          shift 2
          ;;
       -h|--help) shift; usage; 1>&2; exit 1 ;;
-      --) shift; break ;;
+      --) shift; 1>&2; exit 1 ;;
        *) shift; usage; 1>&2; exit 1 ;;
     esac
     continue
