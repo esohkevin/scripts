@@ -130,7 +130,7 @@ for i in ${dname}*_2.fastq* ${dname}*_R2*.fastq* ${dname}*_2.fq* ${dname}*_R2*.f
 done > rev.txt
 
 if [[ $? != 0 ]]; then
-    echo "ERROR: No fastq file in the specified location Terminating..."
+    echo "An ERROR occurred! Terminating..."
     sleep 1;
     1>&2;
     exit 1;
