@@ -256,13 +256,14 @@ done > rev.txt
 
     while true; do
       case "$1" in
-         fq) fq ;;
-         pfq) pfq ;;
-         trim) trim ;;
-         ptrim) ptrim ;;
-         map) map ;;
-         pmap) pmap ;;
+         fq) fq; shift ;;
+         pfq) pfq; shift ;;
+         trim) trim; shift ;;
+         ptrim) ptrim; shift ;;
+         map) map; shift ;;
+         pmap) pmap; shift ;;
       esac
+      continue
     done
 }
 
