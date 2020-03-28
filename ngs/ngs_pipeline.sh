@@ -262,9 +262,7 @@ done > rev.txt
          ptrim) ptrim; shift ;;
          map) map; shift ;;
          pmap) pmap; shift ;;
-         *) shift; break ;;
       esac
-      continue
     done
 }
 
