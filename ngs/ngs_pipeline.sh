@@ -187,7 +187,6 @@ function pmap() {
        id=align.input.txt
        awk '{print $4,"-O BAM -o",$4}' align.input.txt | sed 's/.sam/.bam/2' > sam2bam.input.txt
        awk '{print $5,$5}' sam2bam.input.txt | sed 's/.bam/.sorted.bam/1' > sortbam.input.txt
-       echo "BWA"
        n=$((50/$t))
        echo "BWA"
        cat align.input.txt | parallel --col-sep ' ' echo "mem -t $t $ref {}" | xargs -P$n -n8 bwa
@@ -263,6 +262,7 @@ done > rev.txt
          ptrim) ptrim; shift ;;
          map) map; shift ;;
          pmap) pmap; shift ;;
+         *) shift; break ;;
       esac
       continue
     done
@@ -292,16 +292,16 @@ else
     #--- Run commands (NGS Pipeline)
     while true; do
       case "$1" in
-         fq) qc_map; shift ;;
-	 pfq) qc_map; shift ;;
-         trim) qc_map; shift ;;
-	 ptrim) qc_map; shift ;;
-         map) qc_map; shift ;;
-         pmap) qc_map; shift ;;
+         fq) qc_map ;;
+	 pfq) qc_map ;;
+         trim) qc_map ;;
+	 ptrim) qc_map ;;
+         map) qc_map ;;
+         pmap) qc_map ;;
 	 vcall) vcall; shift ;;
          all) qc_map && vcall; shift ;;
          pall) qc_map && vcall; shift ;;
-	 *) echo -e "\nNo command passed! Please enter at least one coomand: [ fq|pfq|trim|ptrim|map|pmap|vcall ]\nOr type [-h|--help] for usage\n"; shift; 1>&2; exit 1 ;;
+	 *) echo -e "\nNo command passed! Please enter at least one command: [ fq|pfq|trim|ptrim|map|pmap|vcall ]\nOr type [-h|--help] for usage\n"; shift; 1>&2; exit 1 ;;
       esac
       continue
     done
