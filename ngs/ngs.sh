@@ -36,17 +36,17 @@ function usage() {
 
 #--- Check arguments
 if [ $# -lt 1 ]; then
-    usage; 1>&2;
-    exit 1;
+   usage; 1>&2;
+   exit 1;
 fi
- 
+
 if [ $? != 0 ]; then
-   echo "ERROR: Exiting..." 1>&2;
+   echo "Terminating..." 1>&2;
    exit 1;
 fi
 
 #--- Set args parser
-prog=`getopt -o "hp:o:l:t:r:T:" --long "help,fqpath:,out:,leadx:,trailx:,ref:,threads:" -- "$@"`
+temp=$(getopt -o "hp:o:l:t:r:T:" -l "help,fqpath:,out:,leadx:,trailx:,ref:,threads:" -- "$@")
 
 #--- Set defaults
 ref=NULL
@@ -56,7 +56,7 @@ trailx=0
 t=1
 out="ngs"
 
-eval set -- "$prog"
+eval set -h -- "$temp"
 
 #--- Parse args
 while true; do
@@ -104,7 +104,7 @@ while true; do
          shift 2
          ;;
       -h|--help) shift; usage; 1>&2; exit 1 ;;
-      --) shift; 1>&2; exit 1 ;;
+      --) shift; break ;;
        *) shift; usage; 1>&2; exit 1 ;;
     esac
     continue
@@ -253,7 +253,7 @@ else
               echo "ERROR with 'bam.list'! Please check that it exists and contains the bam file names, one per line, including the path..."; 
               1>&2;
               exit 1;
-           elif [[ -e "bam.list" ]]; then
+      	   else
               for i in $(cat bam.list); do
                  if [[ ! -e $i ]]; then
                     echo "The file $i in your bam.list could not be found. Please check and correct..."
@@ -276,7 +276,7 @@ else
 
     #--- Run commands (NGS Pipeline)
     while true; do
-      case "$(echo $1 | tr [:upper:] [:lower:])" in
+      case "$1" in
          fq) fq; shift ;;
 	 pfq) pfq; shift ;;
          trim) trim; shift ;;
