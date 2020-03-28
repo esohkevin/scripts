@@ -225,7 +225,7 @@ function vcall() {
        for i in out.vcf.gz aligned/*.sam; do if [[ -e "${i}" ]]; then rm $i; fi; done
 }
 
-function qc_map() {
+function checkfq() {
 #--- Make input files from forward/reverse runs
 for i in ${dname}*_1.fastq* ${dname}*_R1*.fastq* ${dname}*_1.fq* ${dname}*_R1*.fq* ${dname}*.1.fq* ${dname}*.R1.fq*; do
     if [[ -e $i ]]; then
@@ -253,18 +253,6 @@ done > rev.txt
     awk -v d="${dname}" '{print d$1,d$2,"paired/"$1"_fp.fq.gz","unpaired/"$1"_fu.fq.gz","paired/"$2"_rp.fq.gz","unpaired/"$2"_ru.fq.gz"}' forward_reverse.txt > trim.input.txt
     awk '{print $3,$5,$3}' trim.input.txt | sed 's/_fp.fq.gz/.sam/2' | sed 's/paired\///3' |  awk '{print $1,$2,"-o","aligned/"$3}' > align.input.txt
     rm fwd.txt rev.txt
-
-    while true; do
-      case "$1" in
-         fq) fq; shift ;;
-         pfq) pfq; shift ;;
-         trim) trim; shift ;;
-         ptrim) ptrim; shift ;;
-         map) map; shift ;;
-         pmap) pmap; shift ;;
-      esac
-      continue
-    done
 }
 
 if [[ $? != 0 ]]; then
@@ -291,15 +279,15 @@ else
     #--- Run commands (NGS Pipeline)
     while true; do
       case "$1" in
-         fq) qc_map; shift ;;
-	 pfq) qc_map; shift ;;
-         trim) qc_map; shift ;;
-	 ptrim) qc_map; shift ;;
-         map) qc_map; shift ;;
-         pmap) qc_map; shift ;;
+         fq) checkfq; fq; shift ;;
+	 pfq) checkfq; pfq; shift ;;
+         trim) checkfq; trim; shift ;;
+	 ptrim) checkfq; ptrim; shift ;;
+         map) checkfq; map; shift ;;
+         pmap) checkfq; pmap; shift ;;
 	 vcall) vcall; shift ;;
-         all) qc_map && vcall; shift ;;
-         pall) qc_map && vcall; shift ;;
+         all) checkfq; fq && trim && map && vcall; shift ;;
+         pall) checkfq; pfq && ptrim && pmap && vcall; shift ;;
 	 *) continue ;; #echo -e "\nNo command passed! Please enter at least one command: [ fq|pfq|trim|ptrim|map|pmap|vcall ]\nOr type [-h|--help] for usage\n"; shift; 1>&2; exit 1 ;;
       esac
       continue
