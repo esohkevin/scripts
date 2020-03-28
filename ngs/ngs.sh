@@ -237,7 +237,6 @@ else
            awk '{print $5,$5}' sam2bam.input.txt | sed 's/.bam/.sorted.bam/1' > sortbam.input.txt
            echo "BWA"
            n=$((50/$t))
-           echo "BWA"
            cat align.input.txt | parallel --col-sep ' ' echo "mem -t $t $ref {}" | xargs -P$n -n8 bwa
            cat sam2bam.input.txt | parallel --col-sep ' ' echo "view -h {}" | xargs -P$n -n7 samtools
            cat sortbam.input.txt | parallel --col-sep ' ' echo "sort -O BAM --reference $ref -@ $t -o {}" | xargs -P$n -n10 samtools
