@@ -256,12 +256,12 @@ done > rev.txt
 
     while true; do
       case "$1" in
-         fq) fq; shift ;;
-         pfq) pfq; shift ;;
-         trim) trim; shift ;;
-         ptrim) ptrim; shift ;;
-         map) map; shift ;;
-         pmap) pmap; shift ;;
+         fq) fq ;;
+         pfq) pfq ;;
+         trim) trim ;;
+         ptrim) ptrim ;;
+         map) map ;;
+         pmap) pmap ;;
       esac
     done
 }
@@ -290,12 +290,12 @@ else
     #--- Run commands (NGS Pipeline)
     while true; do
       case "$1" in
-         fq) qc_map ;;
-	 pfq) qc_map ;;
-         trim) qc_map ;;
-	 ptrim) qc_map ;;
-         map) qc_map ;;
-         pmap) qc_map ;;
+         fq) qc_map; shift ;;
+	 pfq) qc_map; shift ;;
+         trim) qc_map; shift ;;
+	 ptrim) qc_map; shift ;;
+         map) qc_map; shift ;;
+         pmap) qc_map; shift ;;
 	 vcall) vcall; shift ;;
          all) qc_map && vcall; shift ;;
          pall) qc_map && vcall; shift ;;
