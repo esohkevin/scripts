@@ -301,7 +301,7 @@ else
 	 vcall) vcall; shift ;;
          all) qc_map && vcall; shift ;;
          pall) qc_map && vcall; shift ;;
-	 *) echo -e "\nNo command passed! Please enter at least one command: [ fq|pfq|trim|ptrim|map|pmap|vcall ]\nOr type [-h|--help] for usage\n"; shift; 1>&2; exit 1 ;;
+	 *) continue ;; #echo -e "\nNo command passed! Please enter at least one command: [ fq|pfq|trim|ptrim|map|pmap|vcall ]\nOr type [-h|--help] for usage\n"; shift; 1>&2; exit 1 ;;
       esac
       continue
     done
