@@ -5,19 +5,26 @@ function usage() {
 	echo -e """
 		NGS Pipeline - Paired End
 
+		Running One or More Steps
+		------------------------
 		Enter 'fq' OR 'trim' OR 'map' OR all to run either FastQC OR Trimmomatic OR alignment/mapping or all steps.
 		Enter any two to run only those two steps
 		Enter a 'p' infront of the command to run the command in parallel. e.g. 'pfq' will run FastQC in parallel
 		Make sure you have GNU parallel installed if you choose to run parallel jobs
 
+		Variant Calling Only
+		-------------------
 		If you chose to run only variant calling (vcall) make sure to create a file called 'bam.list' with the the bam
 		file names, one per line. NB: The bam file names must be preceded by the path if the bam files are not in the
 	        current directory
 
+		Running All Steps
+		----------------
 		To run all steps in serial, simply enter 'all'
 		To run all steps in parallel, simply enter 'pall'
 
 		General Options:
+		---------------
 		  -p,--fqpath    <str>    :Path to fastq files. NB: Make sure all the files are paired i.e. forward and reverse 
 					  :NB: Enter '.' for current directory 
 		  			  :[default: `pwd`/]
@@ -26,10 +33,12 @@ function usage() {
                   -h,--help               :Print this help message
 
 		Trimmomatic Options:
+		-------------------
 		  -l,--leadx     <int>    :Number of bases to crop from the 5' end [default: 0]
 		  -t,--trailx    <int>    :Number of bases to crop from the 3' end [default: 0]
 
 		Alignment/Mapping Options:
+		-------------------------
 		  -r,--ref       <str>	  :Reference FASTA sequence	
 	"""
 }
