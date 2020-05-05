@@ -229,9 +229,9 @@ function vcall() {
        echo "Variant Calling"
        bcftools mpileup --min-MQ 2 --thread $t -f $ref -Oz -o out.vcf.gz -b bam.list
        bcftools index -f -t out.vcf.gz
-       bcftools call -mv --threads $t -Oz -o ${out}.vcf.gz out.vcf.gz
-       bcftools index -f -t ${out}.vcf.gz
-       for i in out.vcf.gz aligned/*.sam; do if [[ -e "${i}" ]]; then rm $i; fi; done
+       bcftools call -mv --threads $t -Oz -o vcall/${out}.vcf.gz out.vcf.gz
+       bcftools index -f -t vcall/${out}.vcf.gz
+       for i in out.vcf.gz* aligned/*.sam; do if [[ -e "${i}" ]]; then rm $i; fi; done
 }
 
 function checkfq() {

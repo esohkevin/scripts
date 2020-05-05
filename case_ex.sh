@@ -15,6 +15,7 @@ read name
 	cathy) echo "galaxy world";;
 	eli) echo "figure bar";;
 	frank) echo "music box";;
+	kesoh) echo "editor"
 	*) echo "Sorry '$name' not yet in database. Available names: Arnold, Cathy, Eli, Nahsh, Esoh, Frank, Val"
       esac
 #   done
