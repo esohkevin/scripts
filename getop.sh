@@ -38,6 +38,7 @@
 #    esac
 #done
 
+
 #-------------------------------------- GETOPT ---------------------------------------
 function usage() {
         printf "Usage: %s [-i invcf] [-o outfile] [-n #chr] ...\n" $(basename $0)
