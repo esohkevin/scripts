@@ -119,3 +119,7 @@ conda install modeller
 conda config --prepend channels schrodinger
 conda install -c schrodinger pymol
 ```
+- Geoplotting (python)
+```
+conda create --yes --name geo python=3.7 geopandas geoplot jupyterlab -c conda-forge
+```
